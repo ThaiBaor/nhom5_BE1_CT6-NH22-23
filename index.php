@@ -95,7 +95,7 @@
 					<!-- SEARCH BAR -->
 					<div class="col-md-6">
 						<div class="header-search">
-							<form>
+							<form action="result.php" method="get">
 								<select class="input-select">
 									<option value="0">All Categories</option>
 									<?php foreach ($getAllProtype as $value) { ?>
@@ -103,8 +103,8 @@
 
 									<?php } ?>
 								</select>
-								<input class="input" placeholder="Search here">
-								<button class="search-btn">Search</button>
+								<input class="input" name="keyword" placeholder="Search here">
+								<button type="submit" class="search-btn">Search</button>
 							</form>
 						</div>
 					</div>
