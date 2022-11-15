@@ -48,9 +48,12 @@
     require "models/manufactures.php";
 	$products = new Products;
 	$protype = new Protype;
+	$manufactures=new Manufactures();
 	$allProducts = $products->getAllProducts();
 	$arr3Products = $products->get3Products();
+	$hotdeals = $products->getHotDeals();
 	$allProtype = $protype->getAllProtype();
+	$allManufactures= $manufactures->getAllMaunufactures();
 	$total = 0;
 	$qty = 0;
 	if(isset($_SESSION['cart'])){
