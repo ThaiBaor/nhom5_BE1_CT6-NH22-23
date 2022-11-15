@@ -16,7 +16,7 @@ include "header.php";
 						</div>
 						<div class="shop-body">
 							<h3>Laptop<br>Collection</h3>
-							<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+							<a href="store.php?typeid=2" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -29,8 +29,8 @@ include "header.php";
 							<img src="./img/shop03.png" alt="">
 						</div>
 						<div class="shop-body">
-							<h3>Accessories<br>Collection</h3>
-							<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+							<h3>HeadPhone<br>Collection</h3>
+							<a href="store.php?typeid=3" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -43,8 +43,8 @@ include "header.php";
 							<img src="./img/shop02.png" alt="">
 						</div>
 						<div class="shop-body">
-							<h3>Cameras<br>Collection</h3>
-							<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+							<h3>Mobile Phone<br>Collection</h3>
+							<a href="store.php?typeid=1" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -88,7 +88,6 @@ include "header.php";
 								<div class="products-slick" data-nav="#slick-nav-1">
 									<!-- product -->
 									<?php
-
 									foreach ($allProducts as $value) {
 										foreach ($allProtype as $valueProtype) {
 											if ($value['type_id'] == $valueProtype['type_id']) {
@@ -301,7 +300,7 @@ include "header.php";
 											</div>
 											<div class="product-body">
 												<p class="product-category"><?php echo $valueProtype['type_name'] ?></p>
-												<h3 class="product-name"><a href="product.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a></h3>
+												<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a></h3>
 												<h4 class="product-price"><?php echo number_format($value['price']) ?> VND </h4>
 											</div>
 										</div>
@@ -324,7 +323,7 @@ include "header.php";
 											</div>
 											<div class="product-body">
 												<p class="product-category"><?php echo $valueProtype['type_name'] ?></p>
-												<h3 class="product-name"><a href="product.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a></h3>
+												<h3 class="product-name"><a href="detail.php"><?php echo $value['name'] ?></a></h3>
 												<h4 class="product-price"><?php echo number_format($value['price']) ?> VND </h4>
 											</div>
 										</div>
@@ -358,7 +357,7 @@ include "header.php";
 											</div>
 											<div class="product-body">
 												<p class="product-category"><?php echo $valueProtype['type_name'] ?></p>
-												<h3 class="product-name"><a href="product.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a></h3>
+												<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a></h3>
 												<h4 class="product-price"><?php echo number_format($value['price']) ?> VND </h4>
 											</div>
 										</div>
@@ -381,7 +380,7 @@ include "header.php";
 											</div>
 											<div class="product-body">
 												<p class="product-category"><?php echo $valueProtype['type_name'] ?></p>
-												<h3 class="product-name"><a href="product.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a></h3>
+												<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a></h3>
 												<h4 class="product-price"><?php echo number_format($value['price']) ?> VND </h4>
 											</div>
 										</div>
@@ -417,7 +416,7 @@ include "header.php";
 											</div>
 											<div class="product-body">
 												<p class="product-category"><?php echo $valueProtype['type_name'] ?></p>
-												<h3 class="product-name"><a href="product.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a></h3>
+												<h3 class="product-name"><a href="detail.php"><?php echo $value['name'] ?></a></h3>
 												<h4 class="product-price"><?php echo number_format($value['price']) ?> VND </h4>
 											</div>
 										</div>
@@ -440,7 +439,7 @@ include "header.php";
 											</div>
 											<div class="product-body">
 												<p class="product-category"><?php echo $valueProtype['type_name'] ?></p>
-												<h3 class="product-name"><a href="product.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a></h3>
+												<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a></h3>
 												<h4 class="product-price"><?php echo number_format($value['price']) ?> VND </h4>
 											</div>
 										</div>
@@ -458,6 +457,6 @@ include "header.php";
 		<!-- /container -->
 	</div>
 	<!-- /SECTION -->
-<?php
+	<?php
 require "footer.php";
 ?>
