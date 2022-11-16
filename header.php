@@ -92,7 +92,7 @@
 					<!-- LOGO -->
 					<div class="col-md-3">
 						<div class="header-logo">
-							<a href="#" class="logo">
+							<a href="index.php" class="logo">
 								<img src="./img/logo.png" alt="">
 							</a>
 						</div>
@@ -207,7 +207,7 @@
 			<div id="responsive-nav">
 				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
+					<li class="active"><a href="index.php">Home</a></li>
 					<li><a href="store.php?typeid=-1">Hot Deals</a></li>
 					<li><a href="store.php?typeid=0">All Categories</a></li>
 					<?php

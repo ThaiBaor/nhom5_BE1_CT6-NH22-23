@@ -142,7 +142,7 @@ include "header.php";
                         <?php
 								$total = 0;
 								foreach ($_SESSION['cart'] as $key => $value) {
-									foreach ($getAllProducts as $p) {
+									foreach ($allProducts as $p) {
 										if ($p['id'] == $key) {
 											$total = $total + $p['price'];
 
