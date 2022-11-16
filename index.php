@@ -239,7 +239,7 @@ $hotdealsHeadPhoneNext = $products->getHotDealsByTypeIdNext(3);
 												</div>
 												<div class="product-body">
 													<p class="product-category"> <?php echo $valueProtype['type_name'] ?></p>
-													<h3 class="product-name"><a href="#"><?php echo $value['name'] ?></a></h3>
+													<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a></h3>
 													<h4 class="product-price"><?php echo number_format($value['price']) ?> VND </h4>
 													<div class="product-rating">
 														<i class="fa fa-star"></i>
