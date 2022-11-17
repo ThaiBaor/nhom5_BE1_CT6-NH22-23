@@ -45,25 +45,25 @@
 	require "models/db.php";
 	require "models/products.php";
 	require "models/protype.php";
-    require "models/manufactures.php";
+	require "models/manufactures.php";
 	$products = new Products;
 	$protype = new Protype;
-	$manufactures=new Manufactures();
+	$manufactures = new Manufactures();
 	$allProducts = $products->getAllProducts();
 	$arr3Products = $products->get3Products();
 	$hotdeals = $products->getHotDeals();
 	$allProtype = $protype->getAllProtype();
-	$allManufactures= $manufactures->getAllMaunufactures();
+	$allManufactures = $manufactures->getAllMaunufactures();
 	$total = 0;
 	$qty = 0;
-	if(isset($_SESSION['cart'])){
-		foreach($_SESSION['cart'] as $key => $value){
+	if (isset($_SESSION['cart'])) {
+		foreach ($_SESSION['cart'] as $key => $value) {
 			$qty = $qty + $value;
 		}
 	}
-    if (isset($_GET['typeid'])){
-        $productByProtype = $products -> getProductByProtype($_GET['typeid']);			
-    }
+	if (isset($_GET['typeid'])) {
+		$productByProtype = $products->getProductByProtype($_GET['typeid']);
+	}
 	?>
 	<!-- HEADER -->
 	<header>
@@ -139,7 +139,7 @@
 								</a>
 								<div class="cart-dropdown">
 									<?php
-									
+
 									if (isset($_SESSION['cart'])) { ?>
 										<div class="cart-list">
 											<?php
@@ -172,7 +172,7 @@
 										<h5>SUBTOTAL: <?php echo number_format($total) ?> VND</h5>
 									</div>
 									<div class="cart-btns">
-										<a href="addcart">View Cart</a>
+										<a href="cart.php">View Cart</a>
 										<a href="checkout.php">Checkout <i class="fa fa-arrow-circle-right"></i></a>
 									</div>
 								</div>
@@ -211,12 +211,12 @@
 					<li><a href="store.php?typeid=-1">Hot Deals</a></li>
 					<li><a href="store.php?typeid=0">All Categories</a></li>
 					<?php
-						foreach ($allProtype as $value){
-							?>
-						<li><a href="store.php?typeid=<?php echo $value['type_id']?>"><?php echo $value['type_name'] ?></a></li>
-						<?php
-						}
-						?>
+					foreach ($allProtype as $value) {
+					?>
+						<li><a href="store.php?typeid=<?php echo $value['type_id'] ?>"><?php echo $value['type_name'] ?></a></li>
+					<?php
+					}
+					?>
 				</ul>
 				<!-- /NAV -->
 			</div>
