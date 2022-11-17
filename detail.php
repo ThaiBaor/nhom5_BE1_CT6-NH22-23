@@ -3,25 +3,13 @@
 <div id="breadcrumb" class="section">
 	<!-- container -->
 	<div class="container">
-		<!-- row -->
-		<div class="row">
-			<div class="col-md-12">
-				<ul class="breadcrumb-tree">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">All Categories</a></li>
-					<li><a href="#">Accessories</a></li>
-					<li><a href="#">Headphones</a></li>
-					<li class="active">Product name goes here</li>
-				</ul>
-			</div>
-		</div>
-		<!-- /row -->
 	</div>
 	<!-- /container -->
 </div>
 <!-- /BREADCRUMB -->
 <?php
 $get4Products = $products->get4Products();
+$relatedProtype;
 if (isset($_GET['id'])) {
 	$id = $_GET['id'];
 	foreach ($allProducts as $value) {
@@ -130,9 +118,16 @@ if (isset($_GET['id'])) {
 								</ul>
 
 								<ul class="product-links">
-									<li>Category:</li>
-									<li><a href="#">Headphones</a></li>
-									<li><a href="#">Accessories</a></li>
+									<?php foreach ($allProtype as $type) {
+										if ($value['type_id'] == $type['type_id']) {
+											$relatedProtype = $type['type_id'];
+									?>
+											<li>Category:</li>
+
+											<li><a href="store.php?typeid=<?php echo $type['type_id'] ?>"><?php echo $type['type_name'] ?></a></li>
+
+									<?php }
+									} ?>
 								</ul>
 
 								<ul class="product-links">
@@ -380,9 +375,11 @@ if (isset($_GET['id'])) {
 								<h3 class="title">Related Products</h3>
 							</div>
 						</div>
-
+						<?php 
+						$relatedProducts = $products->getRelatedProducts($relatedProtype);
+						?>
 						<!-- product -->
-						<?php foreach ($get4Products as $value1) { ?>
+						<?php foreach ($relatedProducts as $value1) { ?>
 							<div class="col-md-3 col-xs-6">
 
 								<div class="product">

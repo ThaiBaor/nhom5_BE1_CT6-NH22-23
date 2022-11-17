@@ -7,4 +7,4 @@ if (isset($_GET['id'])) :
         $_SESSION['cart'][$id] = 1;
     endif;
 endif;
-header('location:checkout.php');
+header('location:addcart.php');

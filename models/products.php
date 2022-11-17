@@ -93,7 +93,15 @@ class Products extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }
-
+    //Lấy sản phẩm liên quan theo loại
+    public function getRelatedProducts($type_id)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM products WHERE `type_id` = $type_id  LIMIT 0,4");
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
     public function getFirst6Products()
     {
         $sql = self::$connection->prepare("SELECT * FROM `products` ORDER BY `products`.`id` DESC LIMIT 0,6");
