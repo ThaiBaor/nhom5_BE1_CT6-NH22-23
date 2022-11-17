@@ -1,4 +1,10 @@
-<?php include "header.php" ?>
+<?php include "header.php";
+$get4Products = $products->get4Products();
+if (isset($_GET['id'])) {
+	$id = $_GET['id'];
+	foreach ($allProducts as $value) {
+		if ($value['id'] == $id) {
+?>
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
 	<!-- container -->
@@ -7,11 +13,17 @@
 		<div class="row">
 			<div class="col-md-12">
 				<ul class="breadcrumb-tree">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">All Categories</a></li>
-					<li><a href="#">Accessories</a></li>
-					<li><a href="#">Headphones</a></li>
-					<li class="active">Product name goes here</li>
+					<li><a href="index.php">Home</a></li>
+					<li><a href="store.php?typeid=0">Categories</a></li>
+					<li><a href="store.php?typeid=<?php echo $value['type_id']?>">
+					<?php 
+					foreach ($allProtype as $valueProtype){
+						if ($valueProtype['type_id']==$value['type_id']){
+							echo $valueProtype['type_name'];
+						}
+					}
+					?></a></li>
+					<li class="active"><?php echo $value['name']?></li>
 				</ul>
 			</div>
 		</div>
@@ -20,13 +32,6 @@
 	<!-- /container -->
 </div>
 <!-- /BREADCRUMB -->
-<?php
-$get4Products = $products->get4Products();
-if (isset($_GET['id'])) {
-	$id = $_GET['id'];
-	foreach ($allProducts as $value) {
-		if ($value['id'] == $id) {
-?>
 			<!-- SECTION -->
 			<div class="section">
 				<!-- container -->
@@ -93,7 +98,7 @@ if (isset($_GET['id'])) {
 								</div>
 								<div>
 									<h3 class="product-price"><?php echo number_format($value['price']) ?> VND</h3>
-									<span class="product-available">In Stock</span>
+									<span class="product-available"> <?php echo $value['instock'] ?> In Stock</span>
 								</div>
 								<p><?php echo $value['description'] ?></p>
 
@@ -131,8 +136,15 @@ if (isset($_GET['id'])) {
 
 								<ul class="product-links">
 									<li>Category:</li>
-									<li><a href="#">Headphones</a></li>
-									<li><a href="#">Accessories</a></li>
+									<li><a href="store.php?typeid=<?php echo $value['type_id']?>">
+									<?php
+											foreach ($allProtype as $valueProtype){
+												if ($valueProtype['type_id']==$value['type_id']){
+													echo $valueProtype['type_name'];
+												}
+											}
+											?>
+									</a></li>
 								</ul>
 
 								<ul class="product-links">
@@ -380,7 +392,6 @@ if (isset($_GET['id'])) {
 								<h3 class="title">Related Products</h3>
 							</div>
 						</div>
-
 						<!-- product -->
 						<?php foreach ($get4Products as $value1) { ?>
 							<div class="col-md-3 col-xs-6">
@@ -393,8 +404,16 @@ if (isset($_GET['id'])) {
 										</div>
 									</div>
 									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#"><?php echo $value1['name'] ?></a></h3>
+										<p class="product-category">
+											<?php
+											foreach ($allProtype as $valueProtype){
+												if ($valueProtype['type_id']==$value1['type_id']){
+													echo $valueProtype['type_name'];
+												}
+											}
+											?>
+										</p>
+										<h3 class="product-name"><a href="detail.php?id=<?php echo $value1['id'] ?>"><?php echo $value1['name'] ?></a></h3>
 										<h4 class="product-price"><?php echo number_format($value1['price']) ?> VND</h4>
 										<div class="product-rating">
 										</div>
