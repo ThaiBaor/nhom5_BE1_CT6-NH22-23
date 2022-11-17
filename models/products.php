@@ -33,10 +33,10 @@ class Products extends Db{
         return $items; //return an array
     }
 
-    public function search($keyword){
-        $sql = self::$connection->prepare("SELECT * FROM products WHERE `description` LIKE?");
+    public function search($keyword,$protype){
+        $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE? AND `type_id`=?");
         $keyword="%$keyword%";
-        $sql ->bind_param("s",$keyword);
+        $sql ->bind_param("si",$keyword,$protype);
         $sql->execute(); //return an object
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -61,6 +61,23 @@ class Products extends Db{
 
     public function getFirst6Products(){
         $sql = self::$connection->prepare("SELECT * FROM `products` ORDER BY `products`.`id` DESC LIMIT 0,6");
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
+    public function countSearchProducts($keyword, $protype){
+        $sql = self::$connection->prepare("SELECT COUNT(*) as 'qty' FROM products WHERE `name` LIKE? AND `type_id`=?");
+        $keyword="%$keyword%";
+        $sql ->bind_param("si",$keyword,$protype);
+        $sql->execute(); //return an object
+        $qty = $sql->get_result()->fetch_assoc();
+        return $qty['qty']; //return an array
+    }
+    public function searchAll($keyword){
+        $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE?");
+        $keyword="%$keyword%";
+        $sql ->bind_param("s",$keyword);
         $sql->execute(); //return an object
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);

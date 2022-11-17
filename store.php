@@ -112,7 +112,7 @@ $qtyOfProduct = $products->countByProtype($_GET['typeid']);
                     <div class="store-sort">
                         <label>
                             Sort By:
-                            <select class="input-select">
+                            <select class="input-select" name="sort">
                                 <option value="0">Popular</option>
                                 <option value="1">Position</option>
                             </select>

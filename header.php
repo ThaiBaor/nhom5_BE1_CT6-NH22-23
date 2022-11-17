@@ -103,11 +103,10 @@
 					<div class="col-md-6">
 						<div class="header-search">
 							<form action="result.php" method="get">
-								<select class="input-select">
-									<option value="0">All Categories</option>
+								<select class="input-select" name="categori">
+									<option value="0" >All Categories</option>
 									<?php foreach ($allProtype as $value) { ?>
-										<option value="1"> <?php echo $value['type_name'] ?> </option>
-
+										<option value="<?php echo $value['type_id']?>"> <?php echo $value['type_name'] ?> </option>
 									<?php } ?>
 								</select>
 								<input class="input" name="keyword" placeholder="Search here">
