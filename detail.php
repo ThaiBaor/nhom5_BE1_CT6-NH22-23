@@ -9,7 +9,6 @@
 <!-- /BREADCRUMB -->
 <?php
 $get4Products = $products->get4Products();
-$relatedProtype;
 if (isset($_GET['id'])) {
 	$id = $_GET['id'];
 	foreach ($allProducts as $value) {
