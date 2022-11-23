@@ -1,7 +1,30 @@
 <?php
 require "header.php";
+$countProducts;
+$perPage = 6;
+$page = $_GET['page'];
+$url = $_SERVER['PHP_SELF'];
+$offset;
+$getProductsPage;
 if (isset($_GET['typeid'])){
     $qtyOfProductByProtype = $products->countByProtype($_GET['typeid']);
+    if($_GET['typeid'] == -1)
+    {
+        $countProducts = $products->countHotDeals();
+        $getProductsPage = $products->getProductsPageHotDeal($page,$perPage);
+        $offset = ceil($countProducts / $perPage);
+    }
+    else if($_GET['typeid'] == 0)
+    {
+        $countProducts = $products->countAllProducts(); 
+        $offset = ceil($countProducts / $perPage);
+        $getProductsPage = $products->getProductsPage($page,$perPage);
+    }
+    else{
+        $countProducts = $products->countByProtype($_GET['typeid']);
+        $offset = ceil($countProducts / $perPage);
+        $getProductsPage = $products->getProductsPageProtype($page,$perPage,$_GET['typeid']);
+    }
 }
 else if (isset($_GET['manuid'])){
     $productByManu= $products->getProductByManu($_GET['manuid']);
@@ -21,7 +44,7 @@ else if (isset($_GET['manuid'])){
                         if (isset($_GET['typeid'])){
                             if ($_GET['typeid']==-1){
                                     ?>
-                    <li>Hot Deals (10 Results)</li>
+                    <li>Hot Deals (<?php echo $countProducts ?> Results)</li>
                     <?php
                                 }
                             else if ($_GET['typeid']==0){
@@ -155,7 +178,7 @@ else if (isset($_GET['manuid'])){
                     <?php
                     if (isset($_GET['typeid'])){
 							if ($_GET['typeid']==-1){
-								foreach ($hotdeals as $value){
+								foreach ($getProductsPage as $value){
 									?>
                     <div class="col-md-4 col-xs-6">
                         <div class="product">
@@ -197,7 +220,7 @@ else if (isset($_GET['manuid'])){
                     <?php
 								}}
 							else if ($_GET['typeid']==0){
-								foreach ($allProducts as $value){
+								foreach ($getProductsPage as $value){
 									?>
                     <div class="col-md-4 col-xs-6">
                         <div class="product">
@@ -241,7 +264,7 @@ else if (isset($_GET['manuid'])){
 							}
 								else{
 							$productByType = $products -> getProductByProtype($_GET['typeid']);
-							foreach ($productByType as $value){
+							foreach ($getProductsPage as $value){
 								?>
                     <div class="col-md-4 col-xs-6">
                         <div class="product">
@@ -338,11 +361,7 @@ else if (isset($_GET['manuid'])){
                 <div class="store-filter clearfix">
                     <span class="store-qty">Showing 20-100 products</span>
                     <ul class="store-pagination">
-                        <li class="active">1</li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                        <?php echo $products->paginate($url,$countProducts,$page,$perPage,$offset,$_GET['typeid']) ?>
                     </ul>
                 </div>
                 <!-- /store bottom filter -->

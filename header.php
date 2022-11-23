@@ -223,12 +223,12 @@
                 <!-- NAV -->
                 <ul class="main-nav nav navbar-nav">
                     <li class="active"><a href="index.php">Home</a></li>
-                    <li><a href="store.php?typeid=-1">Hot Deals</a></li>
-                    <li><a href="store.php?typeid=0">All Categories</a></li>
+                    <li><a href="store.php?typeid=-1&page=1">Hot Deals</a></li>
+                    <li><a href="store.php?typeid=0&page=1">All Categories</a></li>
                     <?php
 					foreach ($allProtype as $value) {
 					?>
-                    <li><a href="store.php?typeid=<?php echo $value['type_id'] ?>"><?php echo $value['type_name'] ?></a>
+                    <li><a href="store.php?typeid=<?php echo $value['type_id'] ?>&page=1"><?php echo $value['type_name'] ?></a>
                     </li>
                     <?php
 					}
