@@ -1,6 +1,8 @@
+<?php session_start(); 
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,46 +10,39 @@
     <title>Login Form</title>
     <link rel="stylesheet" href="css/login.css">
 </head>
-
-<body>
+<body>   
 <div class="header-logo">
         <a href="index.php" class="logo">
             <img src="./img/logo.png" alt="">
         </a>
     </div>
-    <main class="container">   
+    <main class="container">
         <h2>Login</h2>
-        <form action="">
+        <?php
+        if (isset($_COOKIE['error'])){
+            ?>
+            <div class="error">
+            <h3 style="color: red;">Sai Thông Tin Đăng Nhập</h3>
+            </div>
+            <br>
+            <?php
+        }
+        ?>
+        <form action="loginProgress.php" method="POST">
             <div class="input-field">
-                <input type="text" name="username" id="username" placeholder="Enter Your Username">
+                <input type="text" name="username" id="username" placeholder="Enter Your Username" required>
                 <div class="underline"></div>
             </div>
             <div class="input-field">
-                <input type="password" name="password" id="password" placeholder="Enter Your Password">
+                <input type="password" name="password" id="password" placeholder="Enter Your Password" required>
                 <div class="underline"></div>
             </div>
-
             <input type="submit" value="Continue">
         </form>
-
-        <div class="footer">
-            <span>Or Connect With Social Media</span>
-            <div class="social-fields">
-                <div class="social-field twitter">
-                    <a href="#">
-                        <i class="fab fa-twitter"></i>
-                        Sign in with Twitter
-                    </a>
-                </div>
-                <div class="social-field facebook">
-                    <a href="#">
-                        <i class="fab fa-facebook-f"></i>
-                        Sign in with Facebook
-                    </a>
-                </div>
-            </div>
         </div>
     </main>
+    <script>
+</script>
 </body>
 
 </html>
