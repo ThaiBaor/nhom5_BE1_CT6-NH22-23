@@ -95,7 +95,7 @@ form .input-field:first-child {
     color: rgba(0, 0, 0, 0.5);
 }
 
-form input[type="submit"] {
+form input[type="submit"]{
     margin-top: 2rem;
     padding: 0.4rem;
     width: 100%;
@@ -107,7 +107,6 @@ form input[type="submit"] {
     border-radius: 4px;
     transition: all 0.3s ease;
 }
-
 form input[type="submit"]:hover {
     letter-spacing: 0.5px;
     background: linear-gradient(to right, #aa184d, #0f0309);
@@ -142,12 +141,4 @@ form input[type="submit"]:hover {
 .footer .social-field a {
     text-decoration: none;
     color: white;
-}
-
-.footer .social-field.twitter {
-    background: linear-gradient(to right, #56a7f2, #4b4f53);
-}
-
-.footer .social-field.facebook {
-    background: linear-gradient(to right, #1e3c72, #2a5298);
 }

@@ -19,17 +19,7 @@
         </a>
     </div>
     <main class="container">
-        <h2>Login</h2>
-        <?php
-        if (isset($_COOKIE['error'])){
-            ?>
-        <div class="error">
-            <h3 style="color: red;">Login failed</h3>
-        </div>
-        <br>
-        <?php
-        }
-        ?>
+        <h2>Register</h2>    
         <form action="loginProgress.php" method="POST">
             <div class="input-field">
                 <input type="text" name="username" id="username" placeholder="Enter Your Username" required>
@@ -39,8 +29,11 @@
                 <input type="password" name="password" id="password" placeholder="Enter Your Password" required>
                 <div class="underline"></div>
             </div>
+            <div class="input-field">
+                <input type="password" name="password" id="password" placeholder="Comfirm Your Password" required>
+                <div class="underline1"></div>
+            </div>
             <input type="submit" value="Continue">
-            <a href="register.php" style="margin-top: 10px; padding-left: 94px; text-decoration:none; color: black">Register</a>
             </div>
         </form>
         </div>

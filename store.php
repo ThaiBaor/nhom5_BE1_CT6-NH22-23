@@ -135,6 +135,9 @@ else if (isset($_GET['manuid'])){
 								?>
                     </div>
                 </div>
+                <div class="aside">
+                    <a href="">Filt</a>
+                </div>
                 <!-- /aside Widget -->
 
                 <!-- aside Widget -->
