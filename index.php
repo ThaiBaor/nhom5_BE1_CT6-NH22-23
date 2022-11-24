@@ -47,7 +47,7 @@ $hotdealsHeadPhoneNext = $products->getHotDealsByTypeIdNext(3);
 			<div class="col-md-4 col-xs-6">
 				<div class="shop">
 					<div class="shop-img">
-						<img src="./img/shop02.png" alt="">
+						<img src="./img/phonesony.jpg" alt="" style="height: 241px;">
 					</div>
 					<div class="shop-body">
 						<h3>Mobile Phone<br>Collection</h3>
@@ -75,12 +75,7 @@ $hotdealsHeadPhoneNext = $products->getHotDealsByTypeIdNext(3);
 				<div class="section-title">
 					<h3 class="title">New Products</h3>
 					<div class="section-nav">
-						<ul class="section-tab-nav tab-nav">
-							<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-							<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-							<li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-							<li><a data-toggle="tab" href="#tab1">Accessories</a></li>
-						</ul>
+						
 					</div>
 				</div>
 			</div>
@@ -205,12 +200,7 @@ $hotdealsHeadPhoneNext = $products->getHotDealsByTypeIdNext(3);
 				<div class="section-title">
 					<h3 class="title">Top selling</h3>
 					<div class="section-nav">
-						<ul class="section-tab-nav tab-nav">
-							<li class="active"><a data-toggle="tab" href="#tab2">Laptops</a></li>
-							<li><a data-toggle="tab" href="#tab2">Smartphones</a></li>
-							<li><a data-toggle="tab" href="#tab2">Cameras</a></li>
-							<li><a data-toggle="tab" href="#tab2">Accessories</a></li>
-						</ul>
+						
 					</div>
 				</div>
 			</div>
