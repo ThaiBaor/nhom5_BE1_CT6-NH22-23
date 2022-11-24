@@ -6,14 +6,15 @@
         <!-- row -->
         <div class="row">
             <!-- Order Details -->
-            <div class="col-md-10 order-details">
+            <div class="col-md-15 order-details">
                 <div class="section-title text-center">
                     <h3 class="title">Your Order</h3>
                 </div>
                 <div class="order-summary">
                     <div class="order-col">
                         <div><strong>PRODUCT</strong></div>
-                        <div><strong>TOTAL</strong></div>
+                        <div><strong>PRICE</strong></div>
+                        
                     </div>
                     <?php
 
@@ -28,10 +29,12 @@
                                         $total = $total + $p['price']*$value;
                             ?>
                                         <div class="order-col">
-                                            <div><?php echo $value ?>x <?php echo $p['name'] ?></div>
-                                            <div><?php echo number_format($p['price']*$value) ?> VND</div>
+                                            <div><?php echo $value ?>x <?php echo $p['name'] ?><img style="height: 50px;" src="./img/<?php echo $p['image'] ?>" alt=""></div>
+                                            
+                                            <div><?php echo number_format($p['price']*$value) ?> VND</div>       
                                         </div>
                                         <a href="delete.php?id=<?php echo $p['id'] ?>" class="primary-btn">DELETE</a>
+                                        
                             <?php
                                     }
                                 }
@@ -46,6 +49,7 @@
                     <?php } ?>
                 </div>
                 <a href="delete.php" class="primary-btn order-submit">DELETE ALL</a>
+                <a href="checkout.php" class="primary-btn order-submit">CHECKOUT</a>
             </div>
             <!-- /Order Details -->
         </div>
