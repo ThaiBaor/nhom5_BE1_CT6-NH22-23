@@ -79,12 +79,16 @@ if (isset($_GET['id'])) {
 									<a class="review-link" href="#">10 Review(s) | Add your review</a>
 								</div>
 								<div>
+									<?php if($value['sale'] == 1 ){?>
+									<h3 class="product-price"><?php echo number_format($value['price'] * 90 / 100) ?> VND <del class="product-old-price"><?php echo number_format($value['price']) ?> VND</del></h3>
+									<?php } else {?>
 									<h3 class="product-price"><?php echo number_format($value['price']) ?> VND</h3>
+									<?php } ?>
 									<span class="product-available">In Stock</span>
 								</div>
 								<p><?php echo $value['description'] ?></p>
 
-								<div class="product-options">
+								<!-- <div class="product-options">
 									<label>
 										Size
 										<select class="input-select">
@@ -97,17 +101,17 @@ if (isset($_GET['id'])) {
 											<option value="0">Red</option>
 										</select>
 									</label>
-								</div>
+								</div> -->
 
 								<div class="add-to-cart">
-									<div class="qty-label">
+									<!-- <div class="qty-label">
 										Qty
 										<div class="input-number">
 											<input type="number">
 											<span class="qty-up">+</span>
 											<span class="qty-down">-</span>
 										</div>
-									</div>
+									</div> -->
 									<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <a href="cart.php?id=<?php echo $value['id'] ?>">add to cart</a></button>
 								</div>
 
@@ -168,7 +172,123 @@ if (isset($_GET['id'])) {
 									<div id="tab2" class="tab-pane fade in">
 										<div class="row">
 											<div class="col-md-12">
-												<p><?php echo $value['description'] ?></p>
+												<?php if ($value['type_id'] == 1) { ?>
+													<table class="table table-sm ">
+														<tr>
+															<th>DISPLAY</th>
+															<td><?php echo $value['display'] ?></td>
+														</tr>
+														<tr>
+															<th>CHIP</th>
+															<td><?php echo $value['chip'] ?></td>
+														</tr>
+														<tr>
+															<th>RAM</th>
+															<td><?php echo $value['ram'] ?></td>
+														</tr>
+														<tr>
+															<th>ROM</th>
+															<td><?php echo $value['rom'] ?></td>
+														</tr>
+														<tr>
+															<th>BATTERY</th>
+															<td><?php echo $value['battery'] ?></td>
+														</tr>
+														<tr>
+															<th>WEIGHT</th>
+															<td><?php echo $value['weight'] ?></td>
+														</tr>
+													</table>
+
+												<?php } ?>
+												<?php if ($value['type_id'] == 2) { ?>
+													<table class="table table-sm ">
+														<tr>
+															<th>DISPLAY</th>
+															<td><?php echo $value['display'] ?></td>
+														</tr>
+														<tr>
+															<th>CHIP</th>
+															<td><?php echo $value['chip'] ?></td>
+														</tr>
+														<tr>
+															<th>RAM</th>
+															<td><?php echo $value['ram'] ?></td>
+														</tr>
+														<tr>
+															<th>BATTERY</th>
+															<td><?php echo $value['battery'] ?></td>
+														</tr>
+														<tr>
+															<th>CONNECTION</th>
+															<td><?php echo $value['connection'] ?></td>
+														</tr>
+														<tr>
+															<th>BATTERY</th>
+															<td><?php echo $value['battery'] ?></td>
+														</tr>
+														<tr>
+															<th>WEIGHT</th>
+															<td><?php echo $value['weight'] ?></td>
+														</tr>
+													</table>
+												<?php } ?>
+												<?php if ($value['type_id'] == 3) { ?>
+													<table class="table table-sm ">
+														<tr>
+															<th>BATTERY</th>
+															<td><?php echo $value['battery'] ?></td>
+														</tr>
+														<tr>
+															<th>CONNECTION</th>
+															<td><?php echo $value['connection'] ?></td>
+														</tr>
+														<tr>
+															<th>BATTERY</th>
+															<td><?php echo $value['battery'] ?></td>
+														</tr>
+														<tr>
+															<th>WEIGHT</th>
+															<td><?php echo $value['weight'] ?></td>
+														</tr>
+													</table>
+												<?php } ?>
+												<?php if ($value['type_id'] == 4) { ?>
+													<table class="table table-sm ">
+														<tr>
+															<th>DISPLAY</th>
+															<td><?php echo $value['display'] ?></td>
+														</tr>	
+														<tr>
+															<th>CONNECTION</th>
+															<td><?php echo $value['connection'] ?></td>
+														</tr>
+														<tr>
+															<th>WEIGHT</th>
+															<td><?php echo $value['weight'] ?></td>
+														</tr>
+													</table>
+												<?php } ?>
+												<?php if ($value['type_id'] == 5) { ?>
+													<table class="table table-sm ">
+														<tr>
+															<th>MODELS</th>
+															<td><?php echo $value['models'] ?></td>
+														</tr>
+														<tr>
+															<th>KEYSWITCH</th>
+															<td><?php echo $value['keyswitch'] ?></td>
+														</tr>	
+														<tr>
+															<th>CONNECTION</th>
+															<td><?php echo $value['connection'] ?></td>
+														</tr>
+														<tr>
+															<th>WEIGHT</th>
+															<td><?php echo $value['weight'] ?></td>
+														</tr>
+													</table>
+												<?php } ?>
 											</div>
 										</div>
 									</div>
@@ -374,7 +494,7 @@ if (isset($_GET['id'])) {
 								<h3 class="title">Related Products</h3>
 							</div>
 						</div>
-						<?php 
+						<?php
 						$relatedProducts = $products->getRelatedProducts($relatedProtype);
 						?>
 						<!-- product -->
