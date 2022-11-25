@@ -39,7 +39,7 @@
         }
         ?>
         
-        <form action="registerProgress.php" method="POST">
+        <form action="registerProcess.php" method="POST">
             <div class="input-field">
                 <input type="text" name="username" id="username" placeholder="Enter Your Username" required>
                 <div class="underline"></div>

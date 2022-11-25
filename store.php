@@ -126,10 +126,7 @@ if (isset($_GET['typeid'])) {
                         }
                         ?>
                     </div>
-                </div>
-                <div class="aside">
-                    <a href="">Filt</a>
-                </div>
+                </div>               
                 <!-- /aside Widget -->
 
                 <!-- aside Widget -->

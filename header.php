@@ -86,7 +86,7 @@
 						}?>"><i class="fa fa-user-o"></i><?php if (isset($_SESSION['account'])){
 							echo "My Account";
 							?>
-							<li><a href="logoutProgress.php">Log out</a></li>
+							<li><a href="logoutProcess.php">Log out</a></li>
 							<?php
 							}
 							else{
@@ -156,7 +156,6 @@
 									if (isset($_SESSION['cart'])) { ?>
                                     <div class="cart-list">
                                         <?php
-
 											foreach ($_SESSION['cart'] as $key => $value) {
 												foreach ($allProducts as $p) {
 													if ($p['id'] == $key) {

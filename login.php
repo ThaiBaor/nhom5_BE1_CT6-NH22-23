@@ -38,7 +38,7 @@
         <?php
         }
         ?> 
-        <form action="loginProgress.php" method="POST">
+        <form action="loginProcess.php" method="POST">
             <div class="input-field">
                 <input type="text" name="username" id="username" placeholder="Enter Your Username" required>
                 <div class="underline"></div>
