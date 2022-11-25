@@ -1,6 +1,29 @@
 <?php
 require "header.php";
-$qtyOfSearchProducts= $products->countSearchProducts($_GET['keyword'], $_GET['categori']);
+$qtyOfSearchProducts;
+$perPage = 6;
+$page;
+$offset;
+$qtyOfSearchProductsAllType=$products->countSearchAllProducts($_GET['keyword']);
+$getKey = $_GET['keyword'];
+$getCategori = $_GET['categori'];
+if($getCategori == 0){
+    $qtyOfSearchProductsAllType=$products->countSearchAllProducts($_GET['keyword']);;
+}
+else{
+    $qtyOfSearchProductsAllType= $products->countSearchProducts($_GET['keyword'], $_GET['categori']);
+}
+if(isset($_GET['page'])){
+    $page = $_GET['page'];
+    $offset = ceil($qtyOfSearchProductsAllType / $perPage);
+}
+else{
+    $page = 1;
+    $offset = ceil($qtyOfSearchProductsAllType / $perPage);
+}
+$url = $_SERVER['PHP_SELF'];
+
+
 ?>
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
@@ -16,8 +39,9 @@ $qtyOfSearchProducts= $products->countSearchProducts($_GET['keyword'], $_GET['ca
 
                             
                             if ($_GET['categori']==0){
+                                $qtyOfSearchProductsAllType=$products->countSearchAllProducts($_GET['keyword']);
                                     ?>
-                    <li>All Categories</li>
+                    <li>All Categories (<?php echo $qtyOfSearchProductsAllType?> Results)</li>
                     <?php
                             }
                         else {
@@ -27,7 +51,7 @@ $qtyOfSearchProducts= $products->countSearchProducts($_GET['keyword'], $_GET['ca
                                 if ($_GET['categori']==$value['type_id']){
                             ?>
                     <li>Categories</li>
-                    <li class="active"> <?php echo $value['type_name']." "?>(<?php echo $qtyOfSearchProducts?> Results)</li>
+                    <li class="active"> <?php echo $value['type_name']." "?>(<?php echo $qtyOfSearchProductsAllType?> Results)</li>
                     <?php
                                 }
                             }
@@ -107,25 +131,10 @@ $qtyOfSearchProducts= $products->countSearchProducts($_GET['keyword'], $_GET['ca
                 <!-- store top filter -->
                 <div class="store-filter clearfix">
                     <div class="store-sort">
-                        <label>
-                            Sort By:
-                            <select class="input-select">
-                                <option value="0">Popular</option>
-                                <option value="1">Position</option>
-                            </select>
-                        </label>
-
-                        <label>
-                            Show:
-                            <select class="input-select">
-                                <option value="0">20</option>
-                                <option value="1">50</option>
-                            </select>
-                        </label>
+                        
                     </div>
                     <ul class="store-grid">
-                        <li class="active"><i class="fa fa-th"></i></li>
-                        <li><a href="#"><i class="fa fa-th-list"></i></a></li>
+                        
                     </ul>
                 </div>
                 <!-- /store top filter -->
@@ -137,10 +146,10 @@ $qtyOfSearchProducts= $products->countSearchProducts($_GET['keyword'], $_GET['ca
                             if (isset($_GET['keyword']) && isset($_GET['categori'])){
                                 $product2=new Products();
                                 if ($_GET['categori']==0){
-                                    $productsSearch= $product2->searchAll($_GET['keyword']);
+                                    $productsSearch= $product2->getProductsPageSreachAll($page,$perPage,$_GET['keyword']);
                                 }
                                 else{
-                                    $productsSearch= $product2->search($_GET['keyword'],$_GET['categori']);
+                                    $productsSearch= $product2->getProductsPageSreach($page,$perPage,$getKey,$getCategori)  ;
                                 }
                                 foreach ($productsSearch as $value){
                                     ?>
@@ -193,13 +202,9 @@ $qtyOfSearchProducts= $products->countSearchProducts($_GET['keyword'], $_GET['ca
 
                 <!-- store bottom filter -->
                 <div class="store-filter clearfix">
-                    <span class="store-qty">Showing 20-100 products</span>
+                    
                     <ul class="store-pagination">
-                        <li class="active">1</li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                        <?php echo $products->paginateSreach($url, $qtyOfSearchProductsAllType, $page, $perPage, $offset,$getKey,$getCategori) ?>
                     </ul>
                 </div>
                 <!-- /store bottom filter -->

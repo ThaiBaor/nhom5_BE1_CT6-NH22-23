@@ -144,25 +144,10 @@ if (isset($_GET['typeid'])) {
                 <!-- store top filter -->
                 <div class="store-filter clearfix">
                     <div class="store-sort">
-                        <label>
-                            Sort By:
-                            <select class="input-select" name="sort">
-                                <option value="0">Popular</option>
-                                <option value="1">Position</option>
-                            </select>
-                        </label>
-
-                        <label>
-                            Show:
-                            <select class="input-select">
-                                <option value="0">20</option>
-                                <option value="1">50</option>
-                            </select>
-                        </label>
+                       
                     </div>
                     <ul class="store-grid">
-                        <li class="active"><i class="fa fa-th"></i></li>
-                        <li><a href="#"><i class="fa fa-th-list"></i></a></li>
+                        
                     </ul>
                 </div>
                 <!-- /store top filter -->
@@ -338,7 +323,7 @@ if (isset($_GET['typeid'])) {
 
                 <!-- store bottom filter -->
                 <div class="store-filter clearfix">
-                    <span class="store-qty">Showing 20-100 products</span>
+                    
                     <ul class="store-pagination">
                         <?php echo $products->paginate($url, $countProducts, $page, $perPage, $offset, $_GET['typeid']) ?>
                     </ul>

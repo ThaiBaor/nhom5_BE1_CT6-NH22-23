@@ -156,6 +156,15 @@ class Products extends Db
         $qty = $sql->get_result()->fetch_assoc();
         return $qty['qty']; //return an array
     }
+    public function countSearchAllProducts($keyword)
+    {
+        $sql = self::$connection->prepare("SELECT COUNT(*) as 'qty' FROM products WHERE `name` LIKE? ");
+        $keyword = "%$keyword%";
+        $sql->bind_param("s", $keyword);
+        $sql->execute(); //return an object
+        $qty = $sql->get_result()->fetch_assoc();
+        return $qty['qty']; //return an array
+    }
     public function searchAll($keyword)
     {
         $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE?");
@@ -174,6 +183,33 @@ class Products extends Db
         $firstLink = ($page - 1) * $perPage;
         //Dùng LIMIT để giới hạn số lượng hiển thị 1 trang
         $sql = self::$connection->prepare("SELECT * FROM products LIMIT $firstLink, $perPage");
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
+    // lấy sản phẩm phân trang tìm kiếm có tham số keyword
+    function getProductsPageSreachAll($page, $perPage, $keyword)
+    {
+        // Tính số thứ tự trang bắt đầu
+        $firstLink = ($page - 1) * $perPage;
+        //Dùng LIMIT để giới hạn số lượng hiển thị 1 trang
+        $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE? LIMIT $firstLink, $perPage");
+        $keyword = "%$keyword%";
+        $sql->bind_param("s", $keyword);
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
+    // lấy sản phẩm phân trang tìm kiếm có tham số keyword và categori
+    function getProductsPageSreach($page, $perPage, $keyword,$categori)
+    {
+        // Tính số thứ tự trang bắt đầu
+        $firstLink = ($page - 1) * $perPage;
+        $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE? AND `type_id`=? LIMIT $firstLink, $perPage");
+        $keyword = "%$keyword%";
+        $sql->bind_param("si", $keyword, $categori);
         $sql->execute(); //return an object
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -229,6 +265,31 @@ class Products extends Db
         $link = "";
         for ($j = $from; $j <= $to; $j++) {
             $link = $link . "<a href = '$url?page=$j&typeid=$type_id'> $j </a>";
+        }
+        return $link;
+    }
+
+    function paginateSreach($url, $total, $page, $perPage, $offset, $keyword, $categori)
+    {
+        if ($total <= 0) {
+            return "";
+        }
+        $totalLinks = ceil($total / $perPage);
+        if ($totalLinks <= 1) {
+            return "";
+        }
+        $from = $page - $offset;
+        $to = $page + $offset;
+        if ($from <= 0) {
+            $from = 1;
+            $to = $offset * 2;
+        }
+        if ($to > $totalLinks) {
+            $to = $totalLinks;
+        }
+        $link = "";
+        for ($j = $from; $j <= $to; $j++) {
+            $link = $link . "<a href = '$url?page=$j&keyword=$keyword&categori=$categori'> $j </a>";
         }
         return $link;
     }
