@@ -19,8 +19,27 @@
         </a>
     </div>
     <main class="container">
-        <h2>Register</h2>    
-        <form action="loginProgress.php" method="POST">
+        <h2>Register</h2> 
+        <?php
+        if (isset($_COOKIE['errorUser'])){
+            ?>
+        <div class="error">
+            <h3 style="color: red;">Username already exist</h3>
+        </div>
+        <br>
+        <?php
+        }
+        else if (isset($_COOKIE['errorPas'])){
+            ?>
+        <div class="error">
+            <h3 style="color: red;">Password not correct</h3>
+        </div>
+        <br>
+        <?php
+        }
+        ?>
+        
+        <form action="registerProgress.php" method="POST">
             <div class="input-field">
                 <input type="text" name="username" id="username" placeholder="Enter Your Username" required>
                 <div class="underline"></div>

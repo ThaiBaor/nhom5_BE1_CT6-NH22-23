@@ -29,7 +29,15 @@
         <br>
         <?php
         }
-        ?>
+        else if (isset($_COOKIE['successReg'])){
+            ?>
+        <div class="error">
+            <h3 style="color: Green;">Register successed</h3>
+        </div>
+        <br>
+        <?php
+        }
+        ?> 
         <form action="loginProgress.php" method="POST">
             <div class="input-field">
                 <input type="text" name="username" id="username" placeholder="Enter Your Username" required>
