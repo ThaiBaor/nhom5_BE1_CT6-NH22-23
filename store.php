@@ -43,7 +43,7 @@ if (isset($_GET['typeid'])) {
                         <?php
                         } else if ($_GET['typeid'] == 0) {
                         ?>
-                            <li>All Categories</li>
+                            <li>All Categories (<?php echo $countProducts ?> Results)</li>
                         <?php
                         } else {
                         ?>

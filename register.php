@@ -29,11 +29,13 @@
                 <input type="password" name="password" id="password" placeholder="Enter Your Password" required>
                 <div class="underline"></div>
             </div>
+            <br>
             <div class="input-field">
-                <input type="password" name="password" id="password" placeholder="Comfirm Your Password" required>
-                <div class="underline1"></div>
+                <input type="password" name="checkpassword" id="checkpassword" placeholder="Comfirm Your Password" required>
+                <div class="underline"></div>
             </div>
             <input type="submit" value="Continue">
+            <a href="login.php" style="margin-top: 10px; padding-left: 105px; text-decoration:none; color: black">Login</a>
             </div>
         </form>
         </div>
