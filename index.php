@@ -23,7 +23,7 @@ $hotdealsHeadPhoneNext = $products->getHotDealsByTypeIdNext(3);
 					</div>
 					<div class="shop-body">
 						<h3>Laptop<br>Collection</h3>
-						<a href="store.php?typeid=2" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+						<a href="store.php?typeid=2&page=1" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
 			</div>
@@ -37,7 +37,7 @@ $hotdealsHeadPhoneNext = $products->getHotDealsByTypeIdNext(3);
 					</div>
 					<div class="shop-body">
 						<h3>HeadPhone<br>Collection</h3>
-						<a href="store.php?typeid=3" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+						<a href="store.php?typeid=3&page=1" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
 			</div>
@@ -51,7 +51,7 @@ $hotdealsHeadPhoneNext = $products->getHotDealsByTypeIdNext(3);
 					</div>
 					<div class="shop-body">
 						<h3>Mobile Phone<br>Collection</h3>
-						<a href="store.php?typeid=1" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+						<a href="store.php?typeid=1&page=1" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
 			</div>
@@ -114,7 +114,7 @@ $hotdealsHeadPhoneNext = $products->getHotDealsByTypeIdNext(3);
 														<i class="fa fa-star"></i>
 													</div>
 													<div class="product-btns">
-														<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+														<button class="add-to-wishlist"><a href="wishlist.php?id=<?php echo $value['id']?>"><i class="fa fa-heart-o"></i></a><span class="tooltipp">add to wishlist</span></button>
 														<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
 														<button class="quick-view"><a href="detail.php?id=<?php echo $value['id'] ?>"><i class="fa fa-eye"></i></a><span class="tooltipp">quick view</span></button>
 													</div>
