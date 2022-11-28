@@ -30,7 +30,6 @@
                             ?>
                                         <div class="order-col">
                                             <div><?php echo $value ?>x <?php echo $p['name'] ?><img style="height: 50px;" src="./img/<?php echo $p['image'] ?>" alt=""></div>
-                                            
                                             <div><?php echo number_format($p['price']*$value) ?> VND</div>       
                                         </div>
                                         <a href="delete.php?id=<?php echo $p['id'] ?>" class="primary-btn">DELETE</a>
