@@ -28,6 +28,7 @@
 
     <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/jquery-ui.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -79,7 +80,7 @@
                 </ul>
                 <ul class="header-links pull-right">                   
                     <li><a href="<?php if (isset($_SESSION['account'])){
-						echo "blank.php";
+						echo "order.php";
 						}
 						else{
 							echo "login.php";

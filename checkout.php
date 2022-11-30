@@ -135,7 +135,6 @@ include "header.php";
                         <div><strong>TOTAL</strong></div>
                     </div>
                     <?php
-						
 						if (isset($_SESSION['cart'])) {
 						?>
                     <div class="order-products">
@@ -209,7 +208,7 @@ include "header.php";
                         I've read and accept the <a href="#">terms & conditions</a>
                     </label>
                 </div>
-                <a href="#" class="primary-btn order-submit">Place order</a>
+                <a href="<?php if (isset($_SESSION['cart'])) {echo 'order.php';} else {echo 'index.php';}?>" class="primary-btn order-submit">Place order</a>
             </div>
             <!-- /Order Details -->
         </div>

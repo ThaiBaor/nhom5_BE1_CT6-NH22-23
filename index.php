@@ -120,7 +120,7 @@ $hotdealsHeadPhoneNext = $products->getHotDealsByTypeIdNext(3);
 													</div>
 												</div>
 												<div class="add-to-cart">
-													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i><a href="cart.php?id=<?php echo $value['id'] ?>">add to cart</a></button>
+													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i><a href="<?php if (isset($_SESSION['account'])){echo "cart.php?id=".$value['id'];} else {echo "login.php";}?>">add to cart</a></button>
 												</div>
 											</div>
 								<?php }
