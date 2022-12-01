@@ -116,8 +116,8 @@ if (isset($_GET['id'])) {
 								</div>
 
 								<ul class="product-btns">
-									<li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
-									<li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li>
+									<li><a href="wishlist.php"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
+									<!-- <li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li> -->
 								</ul>
 
 								<ul class="product-links">
@@ -502,26 +502,38 @@ if (isset($_GET['id'])) {
 							<div class="col-md-3 col-xs-6">
 
 								<div class="product">
-									<div class="product-img">
-										<img style="height: 200px;" src="./img/<?php echo $value1['image'] ?>" alt="">
-										<div class="product-label">
-											<!-- <span class="sale">-30%</span> -->
-										</div>
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="detail.php?id=<?php echo $value1['id']?>"><?php echo $value1['name'] ?></a></h3>
-										<h4 class="product-price"><?php echo number_format($value1['price']) ?> VND</h4>
-										<div class="product-rating">
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-										</div>
-									</div>
+								<div class="product-img">
+                                            <img style="height: 200px;" src="./img/<?php echo $value1['image'] ?>" alt="">
+                                            <div class="product-label">
+                                                <?php if ($value1['sale'] == 1) { ?>
+                                                    <span class="sale">-30%</span>
+                                                <?php } ?>
+                                                <span class="new">NEW</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-body">
+                                            <!-- <p class="product-category"> <?php echo $valueProtype['type_name'] ?></p> -->
+                                            <h3 class="product-name"><a href="detail.php?id=<?php echo $value1['id'] ?>"><?php echo $value1['name'] ?></a></h3>
+                                            <?php if ($value1['sale'] == 1) { ?>
+                                                <h4 class="product-price"><?php echo number_format($value1['price'] * 90 / 100) ?> VND </h4>
+                                            <?php } else { ?>
+                                                <h4 class="product-price"><?php echo number_format($value1['price']) ?> VND </h4>
+                                            <?php } ?>
+                                            <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <div class="product-btns">
+                                                <button class="add-to-wishlist"><a href="wishlist.php?id=<?php echo $value1['id'] ?>"><i class="fa fa-heart-o"></i></a><span class="tooltipp">add to wishlist</span></button>
+                                                <!-- <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button> -->
+                                                <button class="quick-view"><a href="detail.php?id=<?php echo $value1['id'] ?>"><i class="fa fa-eye"></i></a><span class="tooltipp">quick view</span></button>
+                                            </div>
+                                        </div>
 									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+										<button class="add-to-cart-btn"><a href="cart.php?id=<?php echo $value1['id'] ?>"><i class="fa fa-shopping-cart"></i> add to cart </a></button>
 									</div>
 								</div>
 

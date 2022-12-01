@@ -40,22 +40,22 @@ if (isset($_GET['typeid'])) {
                     if (isset($_GET['typeid'])) {
                         if ($_GET['typeid'] == -1) {
                     ?>
-                    <li>Hot Deals (<?php echo $countProducts ?> Results)</li>
-                    <?php
+                            <li>Hot Deals (<?php echo $countProducts ?> Results)</li>
+                        <?php
                         } else if ($_GET['typeid'] == 0) {
                         ?>
-                    <li>All Categories (<?php echo $countProducts ?> Results)</li>
-                    <?php
+                            <li>All Categories (<?php echo $countProducts ?> Results)</li>
+                        <?php
                         } else {
                         ?>
-                    <?php
+                            <?php
                             foreach ($allProtype as $value) {
                                 if ($_GET['typeid'] == $value['type_id']) {
                             ?>
-                    <li>Categories</li>
-                    <li class="active"> <?php echo $value['type_name'] . " " ?>(<?php echo $qtyOfProductByProtype ?>
-                        Results)</li>
-                    <?php
+                                    <li>Categories</li>
+                                    <li class="active"> <?php echo $value['type_name'] . " " ?>(<?php echo $qtyOfProductByProtype ?>
+                                        Results)</li>
+                                <?php
                                 }
                             }
                         }
@@ -63,9 +63,9 @@ if (isset($_GET['typeid'])) {
                         foreach ($allManufactures as $value) {
                             if ($value['manu_id'] == $_GET['manuid']) {
                                 ?>
-                    <li class="active"> <?php echo $value['manu_name'] . " " ?>(<?php echo $qtyOfProductByManu ?>
-                        Results)
-                    </li>
+                                <li class="active"> <?php echo $value['manu_name'] . " " ?>(<?php echo $qtyOfProductByManu ?>
+                                    Results)
+                                </li>
                     <?php
                             }
                         }
@@ -106,14 +106,13 @@ if (isset($_GET['typeid'])) {
                         <?php
                         foreach ($allProtype as $value) {
                         ?>
-                        <div class="input-checkbox">
-                            <input type="checkbox" class="common_selector protype"
-                                id="<?php echo $value['type_name'] ?>">
-                            <label for="<?php echo $value['type_name'] ?>">
-                                <span></span>
-                                <?php echo $value['type_name'] ?>
-                            </label>
-                        </div>
+                            <div class="input-checkbox">
+                                <input type="checkbox" class="common_selector protype" id="<?php echo $value['type_name'] ?>">
+                                <label for="<?php echo $value['type_name'] ?>">
+                                    <span></span>
+                                    <?php echo $value['type_name'] ?>
+                                </label>
+                            </div>
                         <?php
                         }
                         ?>
@@ -127,16 +126,15 @@ if (isset($_GET['typeid'])) {
                         <?php
                         foreach ($allManufactures as $value) {
                         ?>
-                        <div class="input-checkbox">
-                            <input type="checkbox" class="common_selector manufacture"
-                                id="<?php echo $value['manu_name']; ?>">
-                            <label for="<?php echo $value['manu_name']; ?>">
-                                <span></span>
-                                <?php
+                            <div class="input-checkbox">
+                                <input type="checkbox" class="common_selector manufacture" id="<?php echo $value['manu_name']; ?>">
+                                <label for="<?php echo $value['manu_name']; ?>">
+                                    <span></span>
+                                    <?php
                                     echo $value['manu_name'];
                                     ?>
-                            </label>
-                        </div>
+                                </label>
+                            </div>
                         <?php
                         }
                         ?>
@@ -172,175 +170,187 @@ if (isset($_GET['typeid'])) {
                         if ($_GET['typeid'] == -1) {
                             foreach ($getProductsPage as $value) {
                     ?>
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img style="height:200px" src="./img/<?php echo $value['image'] ?>" alt="">
-                                <div class="product-label">
-                                    <span class="sale">-30%</span>
-                                    <span class="new">NEW</span>
+                                <div class="col-md-4 col-xs-6">
+                                    <div class="product">
+                                        <div class="product-img">
+                                            <img style="height: 200px;" src="./img/<?php echo $value['image'] ?>" alt="">
+                                            <div class="product-label">
+                                                <?php if ($value['sale'] == 1) { ?>
+                                                    <span class="sale">-30%</span>
+                                                <?php } ?>
+                                                <span class="new">NEW</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-body">
+                                            <!-- <p class="product-category"> <?php echo $valueProtype['type_name'] ?></p> -->
+                                            <h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a></h3>
+                                            <?php if ($value['sale'] == 1) { ?>
+                                                <h4 class="product-price"><?php echo number_format($value['price'] * 90 / 100) ?> VND </h4>
+                                            <?php } else { ?>
+                                                <h4 class="product-price"><?php echo number_format($value['price']) ?> VND </h4>
+                                            <?php } ?>
+                                            <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <div class="product-btns">
+                                                <button class="add-to-wishlist"><a href="wishlist.php?id=<?php echo $value['id'] ?>"><i class="fa fa-heart-o"></i></a><span class="tooltipp">add to wishlist</span></button>
+                                                <!-- <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button> -->
+                                                <button class="quick-view"><a href="detail.php?id=<?php echo $value['id'] ?>"><i class="fa fa-eye"></i></a><span class="tooltipp">quick view</span></button>
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i><a href="<?php if (isset($_SESSION['account'])) {
+                                                                                                                            echo "cart.php?id=" . $value['id'];
+                                                                                                                        } else {
+                                                                                                                            echo "login.php";
+                                                                                                                        } ?>">add to cart</a></button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category"><?php echo $value['type_id'] ?></p>
-                                <h3 class="product-name"><a
-                                        href="detail.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a>
-                                </h3>
-                                <h4 class="product-price"><?php echo number_format($value['price'] * 90 / 100) ?> <del
-                                        class="product-old-price"><?php echo number_format($value['price']) ?></del>
-                                </h4>
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-                                            class="tooltipp">add to wishlist</span></button>
-                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span
-                                            class="tooltipp">add to compare</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-                                            view</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i><a href="<?php if (isset($_SESSION['account'])){echo "cart.php?id=".$value['id'];} else {echo "login.php";}?>">add to cart</a></button>
-                            </div>
-                        </div>
-                    </div>
-                    <?php
+                            <?php
                             }
                         } else if ($_GET['typeid'] == 0) {
                             foreach ($getProductsPage as $value) {
                             ?>
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img style="height:200px" src="./img/<?php echo $value['image'] ?>" alt="">
-                                <div class="product-label">
-                                    <span class="sale">-30%</span>
-                                    <span class="new">NEW</span>
+                                <div class="col-md-4 col-xs-6">
+                                    <div class="product">
+                                    <div class="product-img">
+                                            <img style="height: 200px;" src="./img/<?php echo $value['image'] ?>" alt="">
+                                            <div class="product-label">
+                                                <?php if ($value['sale'] == 1) { ?>
+                                                    <span class="sale">-30%</span>
+                                                <?php } ?>
+                                                <span class="new">NEW</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-body">
+                                            <!-- <p class="product-category"> <?php echo $valueProtype['type_name'] ?></p> -->
+                                            <h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a></h3>
+                                            <?php if ($value['sale'] == 1) { ?>
+                                                <h4 class="product-price"><?php echo number_format($value['price'] * 90 / 100) ?> VND </h4>
+                                            <?php } else { ?>
+                                                <h4 class="product-price"><?php echo number_format($value['price']) ?> VND </h4>
+                                            <?php } ?>
+                                            <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <div class="product-btns">
+                                                <button class="add-to-wishlist"><a href="wishlist.php?id=<?php echo $value['id'] ?>"><i class="fa fa-heart-o"></i></a><span class="tooltipp">add to wishlist</span></button>
+                                                <!-- <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button> -->
+                                                <button class="quick-view"><a href="detail.php?id=<?php echo $value['id'] ?>"><i class="fa fa-eye"></i></a><span class="tooltipp">quick view</span></button>
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i><a href="<?php if (isset($_SESSION['account'])) {
+                                                                                                                            echo "cart.php?id=" . $value['id'];
+                                                                                                                        } else {
+                                                                                                                            echo "login.php";
+                                                                                                                        } ?>">add to cart</a></button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category"><?php echo $value['type_id'] ?></p>
-                                <h3 class="product-name"><a
-                                        href="detail.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a>
-                                </h3>
-                                <h4 class="product-price"><?php echo number_format($value['price'] * 90 / 100) ?> <del
-                                        class="product-old-price"><?php echo number_format($value['price']) ?></del>
-                                </h4>
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-                                            class="tooltipp">add to wishlist</span></button>
-                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span
-                                            class="tooltipp">add to compare</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-                                            view</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i><a href="<?php if (isset($_SESSION['account'])){echo "cart.php?id=".$value['id'];} else {echo "login.php";}?>">add to cart</a></button>
-                            </div>
-                        </div>
-                    </div>
-                    <?php
+                            <?php
                             }
                         } else {
                             $productByType = $products->getProductByProtype($_GET['typeid']);
                             foreach ($getProductsPage as $value) {
                             ?>
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img style="height:200px" src="./img/<?php echo $value['image'] ?>" alt="">
-                                <div class="product-label">
-                                    <span class="sale">-30%</span>
-                                    <span class="new">NEW</span>
+                                <div class="col-md-4 col-xs-6">
+                                    <div class="product">
+                                    <div class="product-img">
+                                            <img style="height: 200px;" src="./img/<?php echo $value['image'] ?>" alt="">
+                                            <div class="product-label">
+                                                <?php if ($value['sale'] == 1) { ?>
+                                                    <span class="sale">-30%</span>
+                                                <?php } ?>
+                                                <span class="new">NEW</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-body">
+                                            <!-- <p class="product-category"> <?php echo $valueProtype['type_name'] ?></p> -->
+                                            <h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a></h3>
+                                            <?php if ($value['sale'] == 1) { ?>
+                                                <h4 class="product-price"><?php echo number_format($value['price'] * 90 / 100) ?> VND </h4>
+                                            <?php } else { ?>
+                                                <h4 class="product-price"><?php echo number_format($value['price']) ?> VND </h4>
+                                            <?php } ?>
+                                            <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <div class="product-btns">
+                                                <button class="add-to-wishlist"><a href="wishlist.php?id=<?php echo $value['id'] ?>"><i class="fa fa-heart-o"></i></a><span class="tooltipp">add to wishlist</span></button>
+                                                <!-- <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button> -->
+                                                <button class="quick-view"><a href="detail.php?id=<?php echo $value['id'] ?>"><i class="fa fa-eye"></i></a><span class="tooltipp">quick view</span></button>
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i><a href="<?php if (isset($_SESSION['account'])) {
+                                                                                                                            echo "cart.php?id=" . $value['id'];
+                                                                                                                        } else {
+                                                                                                                            echo "login.php";
+                                                                                                                        } ?>">add to cart</a></button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="product-body">
-                                <p class="product-category"><?php echo $value['type_id'] ?></p>
-                                <h3 class="product-name"><a
-                                        href="detail.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a>
-                                </h3>
-                                <h4 class="product-price"><?php echo number_format($value['price'] * 90 / 100) ?> <del
-                                        class="product-old-price"><?php echo number_format($value['price']) ?></del>
-                                </h4>
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-                                            class="tooltipp">add to wishlist</span></button>
-                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span
-                                            class="tooltipp">add to compare</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-                                            view</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i><a href="<?php if (isset($_SESSION['account'])){echo "cart.php?id=".$value['id'];} else {echo "login.php";}?>">add to cart</a></button>
-                            </div>
-                        </div>
-                    </div>
-                    <?php
+                            <?php
                             }
                         }
                     } else {
                         foreach ($productByManu as $value) {
                             ?>
-                    <div class="col-md-4 col-xs-6">
-                        <div class="product">
-                            <div class="product-img">
-                                <img style="height:200px" src="./img/<?php echo $value['image'] ?>" alt="">
-                                <div class="product-label">
-                                    <span class="sale">-30%</span>
-                                    <span class="new">NEW</span>
+                            <div class="col-md-4 col-xs-6">
+                                <div class="product">
+                                <div class="product-img">
+                                            <img style="height: 200px;" src="./img/<?php echo $value['image'] ?>" alt="">
+                                            <div class="product-label">
+                                                <?php if ($value['sale'] == 1) { ?>
+                                                    <span class="sale">-30%</span>
+                                                <?php } ?>
+                                                <span class="new">NEW</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-body">
+                                            <!-- <p class="product-category"> <?php echo $valueProtype['type_name'] ?></p> -->
+                                            <h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a></h3>
+                                            <?php if ($value['sale'] == 1) { ?>
+                                                <h4 class="product-price"><?php echo number_format($value['price'] * 90 / 100) ?> VND </h4>
+                                            <?php } else { ?>
+                                                <h4 class="product-price"><?php echo number_format($value['price']) ?> VND </h4>
+                                            <?php } ?>
+                                            <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <div class="product-btns">
+                                                <button class="add-to-wishlist"><a href="wishlist.php?id=<?php echo $value['id'] ?>"><i class="fa fa-heart-o"></i></a><span class="tooltipp">add to wishlist</span></button>
+                                                <!-- <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button> -->
+                                                <button class="quick-view"><a href="detail.php?id=<?php echo $value['id'] ?>"><i class="fa fa-eye"></i></a><span class="tooltipp">quick view</span></button>
+                                            </div>
+                                        </div>
+                                    <div class="add-to-cart">
+                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i><a href="<?php if (isset($_SESSION['account'])) {
+                                                                                                                        echo "cart.php?id=" . $value['id'];
+                                                                                                                    } else {
+                                                                                                                        echo "login.php";
+                                                                                                                    } ?>">add to cart</a></button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="product-body">
-                                <p class="product-category"><?php echo $value['manu_id'] ?></p>
-                                <h3 class="product-name"><a
-                                        href="detail.php?id=<?php echo $value['id'] ?>"><?php echo $value['name'] ?></a>
-                                </h3>
-                                <h4 class="product-price"><?php echo number_format($value['price'] * 90 / 100) ?> <del
-                                        class="product-old-price"><?php echo number_format($value['price']) ?></del>
-                                </h4>
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-                                            class="tooltipp">add to wishlist</span></button>
-                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span
-                                            class="tooltipp">add to compare</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-                                            view</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i><a href="<?php if (isset($_SESSION['account'])){echo "cart.php?id=".$value['id'];} else {echo "login.php";}?>">add to cart</a></button>
-                            </div>
-                        </div>
-                    </div>
                     <?php
                         }
                     }

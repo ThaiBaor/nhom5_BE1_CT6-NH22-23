@@ -57,10 +57,18 @@
 	$allManufactures = $manufactures->getAllMaunufactures();
 	$total = 0;
 	$qty = 0;
+    $qtyWishList = 0;
 	if (isset($_SESSION['account'])){
 		if (isset($_SESSION['cart'])) {
 			foreach ($_SESSION['cart'] as $key => $value) {
 				$qty = $qty + $value;
+			}
+		}
+	}
+    if (isset($_SESSION['wishlist'])){
+		if (isset($_SESSION['wishlist'])) {
+			foreach ($_SESSION['wishlist'] as $key => $value) {
+				$qtyWishList = $qtyWishList + $value;
 			}
 		}
 	}
@@ -136,10 +144,10 @@
                         <div class="header-ctn">
                             <!-- Wishlist -->
                             <div>
-                                <a href="#">
+                                <a href="addwishlist.php">
                                     <i class="fa fa-heart-o"></i>
                                     <span>Your Wishlist</span>
-                                    <div class="qty">0</div>
+                                    <div class="qty"><?php echo $qtyWishList?></div>
                                 </a>
                             </div>
                             <!-- /Wishlist -->

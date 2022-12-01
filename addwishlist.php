@@ -1,5 +1,11 @@
 <?php 
 include "header.php";
+$resultWishlist = 0;
+if(isset($_SESSION['wishlist'])){
+foreach($_SESSION['wishlist'] as $key => $value){
+	$resultWishlist++;
+	}
+}
 ?>
 
 <!-- BREADCRUMB -->
@@ -10,10 +16,8 @@ include "header.php";
 				<div class="row">
 					<div class="col-md-12">
 						<ul class="breadcrumb-tree">
-							<li><a href="#">Home</a></li>
-							<li><a href="#">All Categories</a></li>
-							<li><a href="#">Accessories</a></li>
-							<li class="active">Headphones (227,490 Results)</li>
+							<li><a href="index.php">Home</a></li>
+							<li class="active">Wishlist (<?php echo $resultWishlist ?> Results)</li>
 						</ul>
 					</div>
 				</div>
@@ -63,9 +67,9 @@ include "header.php";
 											<i class="fa fa-star"></i>
 										</div>
 										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+											<button class="add-to-wishlist"><a href="deletewishlist.php?id=<?php echo $p['id']?>"><i class="fa fa-heart-o"></a></i><span class="tooltipp">add to wishlist</span></button>
+											<!-- <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button> -->
+											<button class="quick-view"><a href="detail.php?id=<?php echo $p['id'] ?>"><i class="fa fa-eye"></i></a><span class="tooltipp">quick view</span></button>
 										</div>
 									</div>
 									<div class="add-to-cart">
@@ -81,7 +85,7 @@ include "header.php";
 						<!-- /store products -->
 
 						<!-- store bottom filter -->
-						<div class="store-filter clearfix">
+						<!-- <div class="store-filter clearfix">
 							<span class="store-qty">Showing 20-100 products</span>
 							<ul class="store-pagination">
 								<li class="active">1</li>
@@ -90,7 +94,7 @@ include "header.php";
 								<li><a href="#">4</a></li>
 								<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
 							</ul>
-						</div>
+						</div> -->
 						<!-- /store bottom filter -->
 					</div>
 					<!-- /STORE -->
