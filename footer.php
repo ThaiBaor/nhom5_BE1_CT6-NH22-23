@@ -155,8 +155,7 @@ $(document).ready(function(){
         var minimum_price = $('#hidden_minimum_price').val();
         var maximum_price = $('#hidden_maximum_price').val();
         var protype = get_filter('protype');
-        var manufature = get_filter('manufacture');
-		console.log(protype);
+        var manufacture = get_filter('manufacture');
         $.ajax({
             url:"fetch_data.php",
             method:"POST",
@@ -182,9 +181,9 @@ $(document).ready(function(){
 
     $('#price_range').slider({
 		range:true,
-        min:1000,
-        max:65000,
-        values:[1000, 65000],
+        min:1000000,
+        max:100000000,
+        values:[1000000, 100000000],
         step:500,
         stop:function(event, ui)
         {

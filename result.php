@@ -75,6 +75,13 @@ $url = $_SERVER['PHP_SELF'];
         <div class="row">
             <!-- ASIDE -->
             <div id="aside" class="col-md-3">
+            <div class="aside">
+                    <h3 class="aside-title">Price</h3>
+                    <input type="hidden" id="hidden_minimum_price" value="0" />
+                    <input type="hidden" id="hidden_maximum_price" value="65000" />
+                    <p id="price_show"><?php echo number_format(100000)." - ". number_format(100000000)?></p>
+                    <div id="price_range"></div>
+                </div>
                 <!-- aside Widget -->
                 <div class="aside">
                     <h3 class="aside-title">Categories</h3>
@@ -83,7 +90,7 @@ $url = $_SERVER['PHP_SELF'];
 								foreach($allProtype as $value){
 								?>
                         <div class="input-checkbox">
-                            <input type="checkbox" id="<?php echo $value['type_name']?>">
+                            <input type="checkbox" class="common_selector protype" id="<?php echo $value['type_name']?>">
                             <label for="<?php echo $value['type_name']?>">
                                 <span></span>
                                 <?php echo $value['type_name']?>
@@ -103,7 +110,7 @@ $url = $_SERVER['PHP_SELF'];
 								foreach($allManufactures as $value){
 								?>
                         <div class="input-checkbox">
-                            <input type="checkbox" id="<?php echo $value['manu_name'];?>">
+                            <input type="checkbox" class="common_selector manufacture" id="<?php echo $value['manu_name'];?>" value="">
                             <label for="<?php echo $value['manu_name'];?>">
                                 <span></span>
                                 <?php									
@@ -140,7 +147,7 @@ $url = $_SERVER['PHP_SELF'];
                 <!-- /store top filter -->
 
                 <!-- store products -->
-                <div class="row">
+                <div class="row filter_data">
                     <!-- product -->
                     <?php
                             if (isset($_GET['keyword']) && isset($_GET['categori'])){
@@ -180,7 +187,7 @@ $url = $_SERVER['PHP_SELF'];
                                                 <i class="fa fa-star"></i>
                                             </div>
                                             <div class="product-btns">
-                                                <button class="add-to-wishlist"><a href="wishlist.php?id=<?php echo $value['id'] ?>"><i class="fa fa-heart-o"></i></a><span class="tooltipp">add to wishlist</span></button>
+                                                <button class="add-to-wishlist"><a href=" <?php if (isset($_SESSION['account'])){echo "wishlist.php?id=".$value['id'];}else { echo "login.php";}?>"><i class="fa fa-heart-o"></i></a><span class="tooltipp">add to wishlist</span></button>
                                                 <!-- <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button> -->
                                                 <button class="quick-view"><a href="detail.php?id=<?php echo $value['id'] ?>"><i class="fa fa-eye"></i></a><span class="tooltipp">quick view</span></button>
                                             </div>

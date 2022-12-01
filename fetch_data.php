@@ -3,26 +3,26 @@ $connect = new PDO("mysql:host=localhost;dbname=nhom5", "root", "");
 if(isset($_POST["action"]))
 {
 	$query = "
-		SELECT * FROM products, protypes, manufactures WHERE `id<>-1`
+	SELECT * FROM (`products` INNER JOIN manufactures ON products.manu_id=manufactures.manu_id) INNER JOIN protypes ON products.type_id=protypes.type_id WHERE products.id<>-1
 	";
 	if(isset($_POST["minimum_price"], $_POST["maximum_price"]) && !empty($_POST["minimum_price"]) && !empty($_POST["maximum_price"]))
 	{
 		$query .= "
-		 AND `price` BETWEEN '".$_POST["minimum_price"]."' AND '".$_POST["maximum_price"]."'
+		AND `price` BETWEEN '".$_POST["minimum_price"]."' AND '".$_POST["maximum_price"]."'
 		";
 	}
 	if(isset($_POST["protype"]))
 	{
 		$protype_filter = implode("','", $_POST["protype"]);
   		$query .= "
-		AND type_name IN('".$protype_filter."')
+		AND protypes.type_id = products.type_id AND protypes.type_name IN('".$protype_filter."')
   		";
 	}
-	if(isset($_POST["manufature"]))
+	if(isset($_POST["manufacture"]))
 	{
-		$manufature_filter = implode("','", $_POST["manufature"]);
+		$manufacture_filter = implode("','", $_POST["manufacture"]);
   		$query .= "
-		AND manu_name IN('".$manufature_filter."')
+		AND products.manu_id = manufactures.manu_id AND manufactures.manu_name IN('".$manufacture_filter."')
   		";
 	}
 	$statement = $connect->prepare($query);

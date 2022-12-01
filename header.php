@@ -144,7 +144,7 @@
                         <div class="header-ctn">
                             <!-- Wishlist -->
                             <div>
-                                <a href="addwishlist.php">
+                                <a href="<?php if (isset($_SESSION['account'])){echo "addwishlist.php";} else {echo "login.php";}?>">
                                     <i class="fa fa-heart-o"></i>
                                     <span>Your Wishlist</span>
                                     <div class="qty"><?php echo $qtyWishList?></div>
@@ -195,8 +195,8 @@
                                         <h5>SUBTOTAL: <?php echo number_format($total) ?> VND</h5>
                                     </div>
                                     <div class="cart-btns">
-                                        <a href="cart.php">View Cart</a>
-                                        <a href="checkout.php">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                                        <a href="<?php if (isset($_SESSION['account'])){echo "cart.php";} else {echo "login.php";}?>">View Cart</a>
+                                        <a href="<?php if (isset($_SESSION['account'])){echo "checkout.php";} else {echo "login.php";}?>">Checkout <i class="fa fa-arrow-circle-right"></i></a>
                                     </div>
                                 </div>
                             </div>
