@@ -10,13 +10,31 @@ class Products extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }
+
+    // Lấy sản phẩm đã inner join hết tất cả các bảng
+    public function getAllProductsInnerJoin()
+    {
+
+        $sql = self::$connection->prepare("SELECT * FROM `products` INNER JOIN `manufactures` ON `products`.`manu_id` = `manufactures`.`manu_id` INNER JOIN `protypes` ON `products`.`type_id` = `protypes`.`type_id`");
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
+    //Thêm sản phẩm 
     public function addProduct($name, $type_id, $manu_id, $image, $price, $desc, $sold ,$instock, $feature, $onsale)
     {
         $sql = self::$connection->prepare("INSERT INTO products(`name`,`type_id`, `manu_id`, `image`, `price`, `description`, `sold` , `instock`, `feature`, `sale`) VALUES (?,?,?,?,?,?,?,?,?,?)");
         $sql->bind_param("siisisiiii",$name, $type_id, $manu_id, $image, $price, $desc, $sold ,$instock, $feature, $onsale);
         return $sql->execute(); //return an object       
     }
-
+    // Xóa sản phẩm
+    public function deleteProduct($id)
+    {
+        $sql = self::$connection->prepare("DELETE FROM `products` WHERE `id` = ?");
+        $sql->bind_param("i",$id);
+        return $sql->execute(); //return an object       
+    }
 
     public function getNewProducts()
     {

@@ -97,10 +97,10 @@ require "sidebar.php";
                       <?php echo $value['type_name']?>
                       </td>
                       <td>
-                        <img src="../img/<?php echo $value['image']?>" alt="" style="width:90px">
+                      <img style="height: 90px; width: 90px" src="./img/<?php echo $value['image']?>" alt="hinh">
                       </td>
                       <td>
-                      <?php echo number_format($value['price'])." VND"?>
+                      <?php echo number_format($value['price'])?> VND
                       </td>
                       <td>
                       <?php echo substr($value['description'],0,70)."..."?>
@@ -117,12 +117,12 @@ require "sidebar.php";
                               </i>
                               View
                           </a>
-                          <a class="btn btn-info btn-sm" href="#">
+                          <a class="btn btn-info btn-sm" href="editproduct.php?id=<?php echo $value['id']?>">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="#">
+                          <a class="btn btn-danger btn-sm" href="deleteproduct.php?id=<?php echo $value['id']?>">
                               <i class="fas fa-trash">
                               </i>
                               Delete
