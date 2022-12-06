@@ -18,5 +18,15 @@ class Protype extends Db
         $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $item;
     }
+    public function addProtype($typename){
+        $sql = self::$connection->prepare("INSERT INTO protypes(`type_name`) VALUES (?) ");
+        $sql->bind_param("s",$typename);
+        $sql->execute();
+    }
+    public function deleteProtype($typeid){
+        $sql = self::$connection->prepare("DELETE FROM protypes WHERE `type_id`=?");
+        $sql->bind_param("i",$typeid);
+        $sql->execute();
+    }
     
 }
