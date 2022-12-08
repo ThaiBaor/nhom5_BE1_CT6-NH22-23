@@ -47,13 +47,21 @@
                 <input type="password" name="password" id="password" placeholder="Enter Your Password" required>
                 <div class="underline"></div>
             </div>
-            <input type="submit" value="Continue">
+            <br>
+            <div><input type="checkbox" id="showhide"><label for="showhide" style="font-size: small;">Show password</label></div>
+            <input type="submit" value="Continue" style="margin-top: 9px;">
             <a href="register.php" style="margin-top: 10px; padding-left: 94px; text-decoration:none; color: black">Register</a>
             </div>
         </form>
         </div>
     </main>
     <script>
+        const togglepass = document.querySelector("#showhide");
+        const pass = document.querySelector("#password");
+        togglepass.addEventListener("click",function(e){
+            const type = pass.getAttribute('type')==='password'? 'text':'password';
+            pass.setAttribute('type', type);
+        })
     </script>
 </body>
 

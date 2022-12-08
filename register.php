@@ -53,13 +53,23 @@
                 <input type="password" name="checkpassword" id="checkpassword" placeholder="Comfirm Your Password" required>
                 <div class="underline"></div>
             </div>
-            <input type="submit" value="Continue">
+            <br>
+            <div><input type="checkbox" id="showhide"><label for="showhide" style="font-size: small;">Show password</label></div>
+            <input type="submit" value="Continue" style="margin-top: 9px;">
             <a href="login.php" style="margin-top: 10px; padding-left: 105px; text-decoration:none; color: black">Login</a>
             </div>
         </form>
         </div>
     </main>
     <script>
+        const togglepass = document.querySelector("#showhide");
+        const pass = document.querySelector("#password");
+        const comfirmpass = document.querySelector("#checkpassword");
+        togglepass.addEventListener("click",function(e){
+            const type = pass.getAttribute('type')==='password'? 'text':'password';
+            pass.setAttribute('type', type);
+            comfirmpass.setAttribute('type', type);
+        })
     </script>
 </body>
 
