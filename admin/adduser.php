@@ -11,12 +11,12 @@ require "sidebar.php";
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Add New Protype</h1>
+          <h1>Add New Account</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="admin.php">Home</a></li>
-            <li class="breadcrumb-item active">Protypes</li>
+            <li class="breadcrumb-item active">Account</li>
           </ol>
         </div>
       </div>
@@ -35,11 +35,15 @@ require "sidebar.php";
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="addprotypeprocess.php" method="post" enctype="multipart/form-data">
+            <form action="adduserprocess.php" method="post" enctype="multipart/form-data">
               <div class="card-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Name</label>
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" require="" pattern="[a-zA-Z]{1,100}">
+                  <label for="exampleInputEmail1">User name</label>
+                  <input type="text" name="username" class="form-control" id="username" placeholder="Enter Name" require="" ">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Password</label>
+                  <input type="password" name="password" class="form-control" id="password" placeholder="Enter Name" require="" ">
                 </div>
               </div>
               <!-- /.card-body -->

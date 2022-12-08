@@ -2,22 +2,9 @@
 require "config.php";
 require "models/db.php";
 require "models/protype.php";
-$products = new Products;
+$protype = new Protype();
 if (isset($_POST['name'])){
-    $name = $_POST['name'];
-    $manu_id = $_POST['manu_id'];
-    $type_id = $_POST['type_id'];
-    $desc = $_POST['description'];
-    $sold= $_POST['sold'];
-    $instock = $_POST['instock'];
-    $feature= isset($_POST['feature'])?1:0;
-    $onsale= isset($_POST['onsale'])?1:0;
-    $price = $_POST['price'];
-    $image = $_FILES['image']['name'];
-    $newProduct = $products->addProduct($name, $type_id, $manu_id, $image, $price, $desc, $sold ,$instock, $feature, $onsale);
-
-    $target_dir = "../img/";
-    $target_file = $target_dir.basename($_FILES["image"]["name"]);
-    move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-    header("location:product.php");
+    $name = $_POST['name'];   
+    $newProtype = $protype->addProtype($name);
+    header("location:protype.php");
 }

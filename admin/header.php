@@ -4,9 +4,11 @@ require "models/db.php";
 require "models/products.php";
 require "models/manufactures.php";
 require "models/protype.php";
+require "models/account.php";
 $products = new Products;
 $manufactures = new Manufactures;
 $protypes= new Protype;
+$user = new Account;
 ?>
 <!DOCTYPE html>
 <html lang="en">
