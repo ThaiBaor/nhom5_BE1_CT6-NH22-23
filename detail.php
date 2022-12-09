@@ -27,7 +27,7 @@ if (isset($_GET['id'])) {
 									<img src="./img/<?php echo $value['image'] ?>" alt="">
 								</div>
 
-								<div class="product-preview">
+								<!-- <div class="product-preview">
 									<img src="./img/product03.png" alt="">
 								</div>
 
@@ -37,7 +37,7 @@ if (isset($_GET['id'])) {
 
 								<div class="product-preview">
 									<img src="./img/product08.png" alt="">
-								</div>
+								</div> -->
 							</div>
 						</div>
 						<!-- /Product main img -->
@@ -49,7 +49,7 @@ if (isset($_GET['id'])) {
 									<img src="./img/<?php echo $value['image'] ?>" alt="">
 								</div>
 
-								<div class="product-preview">
+								<!-- <div class="product-preview">
 									<img src="./img/product03.png" alt="">
 								</div>
 
@@ -59,7 +59,7 @@ if (isset($_GET['id'])) {
 
 								<div class="product-preview">
 									<img src="./img/product08.png" alt="">
-								</div>
+								</div> -->
 							</div>
 						</div>
 						<!-- /Product thumb imgs -->

@@ -67,7 +67,7 @@ foreach($_SESSION['wishlist'] as $key => $value){
 											<i class="fa fa-star"></i>
 										</div>
 										<div class="product-btns">
-											<button class="add-to-wishlist"><a href="deletewishlist.php?id=<?php echo $p['id']?>"><i class="fa fa-heart-o"></a></i><span class="tooltipp">add to wishlist</span></button>
+											<button class="add-to-wishlist"><a href="deletewishlist.php?id=<?php echo $p['id']?>"><i class="fa fa-heart-o"></a></i><span class="tooltipp">delete wishlist</span></button>
 											<!-- <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button> -->
 											<button class="quick-view"><a href="detail.php?id=<?php echo $p['id'] ?>"><i class="fa fa-eye"></i></a><span class="tooltipp">quick view</span></button>
 										</div>

@@ -4,7 +4,7 @@ $newProducts = $products->getNewProducts();
 $hotdealsLapTop = $products->getHotDealsByTypeId(2);
 $hotdealsLapTopNext = $products->getHotDealsByTypeIdNext(2);
 $hotdealsMobile = $products->getHotDealsByTypeId(1);
-$hotdealsMobileNext = $products->getHotDealsByTypeIdNext(2);
+$hotdealsMobileNext = $products->getHotDealsByTypeIdNext(1);
 $hotdealsHeadPhone = $products->getHotDealsByTypeId(3);
 $hotdealsHeadPhoneNext = $products->getHotDealsByTypeIdNext(3);
 ?>

@@ -45,7 +45,7 @@ if(isset($_POST["action"]))
                                 </div>
                             </div>
                             <div class="product-body">
-                                <p class="product-category">'.$value['type_id'].'</p>
+                                <p class="product-category">'.$value['type_name'].'</p>
                                 <h3 class="product-name"><a
                                         href="detail.php?id='.$value['id'].'">'.$value['name'].'</a>
                                 </h3>
@@ -60,12 +60,9 @@ if(isset($_POST["action"]))
                                     <i class="fa fa-star"></i>
                                 </div>
                                 <div class="product-btns">
-                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-                                            class="tooltipp">add to wishlist</span></button>
-                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span
-                                            class="tooltipp">add to compare</span></button>
-                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-                                            view</span></button>
+								<button class="add-to-wishlist"><a href="wishlist.php?id='.$value['id'].'"><i class="fa fa-heart-o"></i></a><span class="tooltipp">add to wishlist</span></button>
+                                    
+								<button class="quick-view"><a href="detail.php?id='.$value['id'].'"><i class="fa fa-eye"></i></a><span class="tooltipp">quick view</span></button>
                                 </div>
                             </div>
                             <div class="add-to-cart">

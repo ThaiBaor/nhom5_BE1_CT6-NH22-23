@@ -72,69 +72,9 @@ $url = $_SERVER['PHP_SELF'];
     <!-- container -->
     <div class="container">
         <!-- row -->
-        <div class="row">
-            <!-- ASIDE -->
-            <div id="aside" class="col-md-3">
-            <div class="aside">
-                    <h3 class="aside-title">Price</h3>
-                    <input type="hidden" id="hidden_minimum_price" value="0" />
-                    <input type="hidden" id="hidden_maximum_price" value="65000" />
-                    <p id="price_show"><?php echo number_format(100000)." - ". number_format(100000000)?></p>
-                    <div id="price_range"></div>
-                </div>
-                <!-- aside Widget -->
-                <div class="aside">
-                    <h3 class="aside-title">Categories</h3>
-                    <div class="checkbox-filter">
-                        <?php
-								foreach($allProtype as $value){
-								?>
-                        <div class="input-checkbox">
-                            <input type="checkbox" class="common_selector protype" id="<?php echo $value['type_name']?>">
-                            <label for="<?php echo $value['type_name']?>">
-                                <span></span>
-                                <?php echo $value['type_name']?>
-                            </label>
-                        </div>
-                        <?php
-								}
-								?>
-                    </div>
-                </div>
-                <!-- /aside Widget -->
-                <!-- aside Widget -->
-                <div class="aside">
-                    <h3 class="aside-title">Brand</h3>
-                    <div class="checkbox-filter">
-                        <?php
-								foreach($allManufactures as $value){
-								?>
-                        <div class="input-checkbox">
-                            <input type="checkbox" class="common_selector manufacture" id="<?php echo $value['manu_name'];?>" value="">
-                            <label for="<?php echo $value['manu_name'];?>">
-                                <span></span>
-                                <?php									
-											echo $value['manu_name'];										
-										?>
-                            </label>
-                        </div>
-                        <?php
-								}
-								?>
-                    </div>
-                </div>
-                <!-- /aside Widget -->
-
-                <!-- aside Widget -->
-                <div class="aside">
-                    <h3 class="aside-title"></h3>
-                </div>
-                <!-- /aside Widget -->
-            </div>
-            <!-- /ASIDE -->
-
+        <div class="row">         
             <!-- STORE -->
-            <div id="store" class="col-md-9">
+            <div id="store" class="col-md-12">
                 <!-- store top filter -->
                 <div class="store-filter clearfix">
                     <div class="store-sort">
@@ -147,7 +87,7 @@ $url = $_SERVER['PHP_SELF'];
                 <!-- /store top filter -->
 
                 <!-- store products -->
-                <div class="row filter_data">
+                <!-- <div class="row filter_data"> -->
                     <!-- product -->
                     <?php
                             if (isset($_GET['keyword']) && isset($_GET['categori'])){
@@ -206,7 +146,7 @@ $url = $_SERVER['PHP_SELF'];
                     <div class="clearfix visible-sm visible-xs"></div>
                     <div class="clearfix visible-lg visible-md visible-sm visible-xs"></div>
                     <div class="clearfix visible-sm visible-xs"></div>
-                </div>
+                <!-- </div> -->
                 <!-- /store products -->
 
                 <!-- store bottom filter -->
