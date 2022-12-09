@@ -3,8 +3,9 @@ require "config.php";
 require "models/db.php";
 require "models/protype.php";
 $protype = new Protype();
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $protype->deleteProtype($id);
+if (isset($_POST['id'])) {
+    $id = $_POST['id'];
+    $typeName = $_POST['name'];
+    $protype->editProtype($id, $typeName);
     header("location:protype.php");
 }

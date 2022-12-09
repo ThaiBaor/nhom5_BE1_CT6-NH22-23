@@ -11,7 +11,7 @@ class Protype extends Db
     }
     public function getProtypeById($type_id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM protypes WHERE type_id=?");
+        $sql = self::$connection->prepare("SELECT * FROM `protypes` WHERE `type_id` = ?");
         $sql -> bind_param("i",$type_id);
         $sql->execute();
         $item = array();
@@ -28,5 +28,10 @@ class Protype extends Db
         $sql->bind_param("i",$typeid);
         $sql->execute();
     }
-    
+    public function editProtype($typeId, $typeName)
+    {
+        $sql = self::$connection->prepare("UPDATE `protypes` SET `type_name`= ? WHERE `type_id` = ?");
+        $sql->bind_param("si", $typeName,$typeId);
+        return $sql->execute();
+    }
 }

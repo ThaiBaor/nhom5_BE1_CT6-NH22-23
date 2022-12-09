@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th10 24, 2022 lúc 12:16 PM
+-- Thời gian đã tạo: Th12 09, 2022 lúc 05:58 AM
 -- Phiên bản máy phục vụ: 5.7.36
 -- Phiên bản PHP: 7.4.26
 
@@ -29,18 +29,19 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `account`;
 CREATE TABLE IF NOT EXISTS `account` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `account`
 --
 
 INSERT INTO `account` (`id`, `username`, `password`) VALUES
-(0, 'thaibao123', 'fcea920f7412b5da7be0cf42b8c93759');
+(1, 'thaibao123', 'fcea920f7412b5da7be0cf42b8c93759'),
+(3, 'Admin', 'c4ca4238a0b923820dcc509a6f75849b');
 
 -- --------------------------------------------------------
 
@@ -53,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `manufactures` (
   `manu_id` int(11) NOT NULL AUTO_INCREMENT,
   `manu_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`manu_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `manufactures`
@@ -82,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `image` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
   `feature` tinyint(4) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `sold` int(11) NOT NULL,
   `instock` int(11) NOT NULL,
   `display` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -97,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `models` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `sale` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `products`
@@ -148,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `protypes` (
   `type_id` int(11) NOT NULL AUTO_INCREMENT,
   `type_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`type_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `protypes`

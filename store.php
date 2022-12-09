@@ -366,7 +366,7 @@ if (isset($_GET['typeid'])) {
                 <!-- store bottom filter -->
                 <div class="store-filter clearfix">
                     <ul class="store-pagination">
-                        <?php echo $products->paginate($url, $countProducts, $page, $perPage, $offset, $_GET['typeid']) ?>
+                        <!-- <?php echo $products->paginate($url, $countProducts, $page, $perPage, $offset, $_GET['typeid']) ?> -->
                     </ul>
                 </div>
                 <!-- /store bottom filter -->
