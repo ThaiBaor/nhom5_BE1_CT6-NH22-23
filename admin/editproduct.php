@@ -13,12 +13,12 @@ if (isset($_GET['id'])) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Add New Product</h1>
+                    <h1>Edit Product</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Validation</li>
+                        <li class="breadcrumb-item active">Edit Product</li>
                     </ol>
                 </div>
             </div>
@@ -37,9 +37,10 @@ if (isset($_GET['id'])) {
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="addproductprocess.php" method="post" enctype="multipart/form-data">
+                        <form action="editproductprocess.php" method="post" enctype="multipart/form-data">
                             <div class="card-body">
                                 <div class="form-group">
+                                    <input type="hidden" name="id" value="<?php echo $getProduct[0]['id']?>">
                                     <label for="exampleInputEmail1">Name</label>
                                     <input value="<?php echo $getProduct[0]['name'] ?>" type="text" name="name" class="form-control" id="name" placeholder="Enter Name">
                                 </div>
@@ -119,7 +120,7 @@ if (isset($_GET['id'])) {
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">ADD</button>
+                                <button type="submit" class="btn btn-primary">UPDATE</button>
                             </div>
                         </form>
                     </div>

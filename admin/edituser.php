@@ -50,7 +50,7 @@ if(isset($_GET['id'])){
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
-                <button type="submit" class="btn btn-primary">ADD</button>
+                <button type="submit" class="btn btn-primary">UPDATE</button>
               </div>
             </form>
           </div>

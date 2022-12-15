@@ -22,17 +22,31 @@ class Products extends Db
         return $items; //return an array
     }
     //Thêm sản phẩm 
-    public function addProduct($name, $type_id, $manu_id, $image, $price, $desc, $sold ,$instock, $feature, $onsale)
+    public function addProduct($name, $type_id, $manu_id, $image, $price, $desc, $sold, $instock, $feature, $onsale)
     {
         $sql = self::$connection->prepare("INSERT INTO products(`name`,`type_id`, `manu_id`, `image`, `price`, `description`, `sold` , `instock`, `feature`, `sale`) VALUES (?,?,?,?,?,?,?,?,?,?)");
-        $sql->bind_param("siisisiiii",$name, $type_id, $manu_id, $image, $price, $desc, $sold ,$instock, $feature, $onsale);
+        $sql->bind_param("siisisiiii", $name, $type_id, $manu_id, $image, $price, $desc, $sold, $instock, $feature, $onsale);
         return $sql->execute(); //return an object       
     }
+    // Chỉnh sửa sản phẩm
+    public function editProduct($id,$name, $type_id, $manu_id, $image, $price, $desc, $sold, $instock, $feature, $onsale)
+    {
+        if ($image != "") {
+            $sql = self::$connection->prepare("UPDATE `products` SET `name`=?,`type_id`=?,`manu_id`=?,`image`=?,`price`=?,`description`=?,`sold`=?,`instock`=?,`feature`=?,`sale`=? WHERE `id` = ?");
+            $sql->bind_param("siisisiiiii", $name, $type_id, $manu_id, $image, $price, $desc, $sold, $instock, $feature, $onsale,$id);
+            return $sql->execute(); //return an object       
+        } else {
+            $sql = self::$connection->prepare("UPDATE `products` SET `name`=?,`type_id`=?,`manu_id`=?,`price`=?,`description`=?,`sold`=?,`instock`=?,`feature`=?,`sale`= ? WHERE `id` = ?");
+            $sql->bind_param("siiisiiiii", $name, $type_id, $manu_id, $price, $desc, $sold, $instock, $feature, $onsale,$id);
+            return $sql->execute(); //return an object       
+        }
+    }
+
     // Xóa sản phẩm
     public function deleteProduct($id)
     {
         $sql = self::$connection->prepare("DELETE FROM `products` WHERE `id` = ?");
-        $sql->bind_param("i",$id);
+        $sql->bind_param("i", $id);
         return $sql->execute(); //return an object       
     }
 
@@ -239,7 +253,7 @@ class Products extends Db
         return $items; //return an array
     }
     // lấy sản phẩm phân trang tìm kiếm có tham số keyword và categori
-    function getProductsPageSreach($page, $perPage, $keyword,$categori)
+    function getProductsPageSreach($page, $perPage, $keyword, $categori)
     {
         // Tính số thứ tự trang bắt đầu
         $firstLink = ($page - 1) * $perPage;
