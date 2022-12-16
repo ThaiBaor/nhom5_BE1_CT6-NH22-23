@@ -47,6 +47,11 @@ require "sidebar.php";
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Image</label>
+                  <?php
+                  if (isset($_COOKIE['error'])){
+                    echo "<p>".$_COOKIE['error']."</p>";
+                  }
+                  ?>
                   <input type="file" name="image" class="form-control" id="image">
                 </div>
                 <div class="form-group">

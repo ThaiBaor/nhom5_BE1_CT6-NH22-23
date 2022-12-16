@@ -40,7 +40,10 @@ $user = new Account;
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
+  <!-- Chart -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
   <!-- Preloader -->
 
   <!-- Navbar -->
