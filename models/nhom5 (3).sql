@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th12 09, 2022 lúc 05:58 AM
+-- Thời gian đã tạo: Th12 16, 2022 lúc 01:33 AM
 -- Phiên bản máy phục vụ: 5.7.36
 -- Phiên bản PHP: 7.4.26
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `account` (
   `username` varchar(50) NOT NULL,
   `password` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `account`
@@ -41,7 +41,8 @@ CREATE TABLE IF NOT EXISTS `account` (
 
 INSERT INTO `account` (`id`, `username`, `password`) VALUES
 (1, 'thaibao123', 'fcea920f7412b5da7be0cf42b8c93759'),
-(3, 'Admin', 'c4ca4238a0b923820dcc509a6f75849b');
+(3, 'Admin', 'c4ca4238a0b923820dcc509a6f75849b'),
+(5, 'hoaimonkey', 'c4ca4238a0b923820dcc509a6f75849b');
 
 -- --------------------------------------------------------
 
@@ -80,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `manu_id` int(11) NOT NULL,
   `type_id` int(11) NOT NULL,
   `price` int(11) NOT NULL,
-  `image` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
   `feature` tinyint(4) NOT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -98,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `models` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `sale` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `products`
