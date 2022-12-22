@@ -100,7 +100,7 @@ require "sidebar.php";
                       <?php echo $value['type_name']?>
                       </td>
                       <td>
-                      <img style="height: 90px; width: 90px" src="./img/<?php echo $value['image']?>" alt="hinh">
+                      <img style="height: 90px; width: 90px" src="../img/<?php echo $value['image']?>" alt="hinh">
                       </td>
                       <td>
                       <?php echo number_format($value['price'])?> VND

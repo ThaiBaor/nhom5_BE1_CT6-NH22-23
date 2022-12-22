@@ -17,10 +17,8 @@ if (isset($_POST['name'])){
     $image = $_FILES['image']['name'];
     $newProduct = $products->addProduct($name, $type_id, $manu_id, $image, $price, $desc, $sold ,$instock, $feature, $onsale);
 
-    $target_dir1 = "./img/";
+    $target_dir1 = "../img/";
     $target_file1 = $target_dir1.basename($_FILES["image"]["name"]);   
-    $target_dir2 = "../img/";
-    $target_file2 = $target_dir2.basename($_FILES["image"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file1,PATHINFO_EXTENSION));
 
@@ -58,7 +56,7 @@ if (isset($_POST['name'])){
       // if everything is ok, try to upload file
       } else{
         move_uploaded_file($_FILES["image"]["tmp_name"], $target_file1);
-        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file2);
+        
         
       }
       header("location:product.php");

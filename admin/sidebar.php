@@ -69,7 +69,15 @@
                 User
               </p>
                 </a>
-            </li>           
+            </li>    
+            <li class="nav-item">
+                <a href="order.php" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Order
+              </p>
+                </a>
+            </li>              
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

@@ -5,10 +5,12 @@ require "models/products.php";
 require "models/manufactures.php";
 require "models/protype.php";
 require "models/account.php";
+require "models/order.php";
 $products = new Products;
 $manufactures = new Manufactures;
 $protypes= new Protype;
 $user = new Account;
+$order = new Order;
 ?>
 <!DOCTYPE html>
 <html lang="en">
