@@ -90,12 +90,12 @@ require "sidebar.php";
               </div>
                 <div class="form-group mb-0">
                   <div class="custom-control custom-checkbox">
-                    <input type="checkbox" name="feature" class="custom-control-input" id="feature">
-                    <label class="custom-control-label" for="feature">Feature</label>
+                    <input type="checkbox" name="feature"  id="feature">
+                    <label  for="feature">Feature</label>
                   </div>
                   <div class="custom-control custom-checkbox">
-                    <input type="checkbox" name="onsale" class="custom-control-input" id="onsale">
-                    <label class="custom-control-label" for="onsale">On Sale</label>
+                    <input type="checkbox" name="onsale"  id="onsale">
+                    <label  for="onsale">On Sale</label>
                   </div>
                 </div>
               </div>

@@ -100,20 +100,20 @@ if (isset($_GET['id'])) {
                                 <div class="form-group mb-0">
                                     <div class="custom-control custom-checkbox">
                                         <?php if ($getProduct[0]['feature'] == 1) { ?>
-                                            <input checked type="checkbox" name="feature" class="custom-control-input" id="feature">
-                                            <label class="custom-control-label" for="feature">Feature</label>
+                                            <input checked type="checkbox" name="feature" id="feature">
+                                            <label for="feature">Feature</label>
                                         <?php } else { ?>
-                                            <input checked type="checkbox" name="feature" class="custom-control-input" id="feature">
-                                            <label class="custom-control-label" for="feature">Feature</label>
+                                            <input checked type="checkbox" name="feature"  id="feature">
+                                            <label  for="feature">Feature</label>
                                         <?php } ?>
                                     </div>
                                     <div class="custom-control custom-checkbox">
                                         <?php if ($getProduct[0]['sale'] == 1) { ?>
-                                            <input checked type="checkbox" name="onsale" class="custom-control-input" id="onsale">
-                                            <label class="custom-control-label" for="onsale">On Sale</label>
+                                            <input checked type="checkbox" name="onsale" id="onsale">
+                                            <label for="onsale">On Sale</label>
                                         <?php } else { ?>
-                                            <input  type="checkbox" name="onsale" class="custom-control-input" id="onsale">
-                                            <label class="custom-control-label" for="onsale">On Sale</label>
+                                            <input  type="checkbox" name="onsale" id="onsale">
+                                            <label for="onsale">On Sale</label>
                                         <?php } ?>
                                     </div>
                                 </div>

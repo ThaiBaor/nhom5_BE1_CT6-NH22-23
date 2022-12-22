@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th12 16, 2022 lúc 01:33 AM
+-- Thời gian đã tạo: Th12 22, 2022 lúc 01:12 PM
 -- Phiên bản máy phục vụ: 5.7.36
 -- Phiên bản PHP: 7.4.26
 
@@ -71,6 +71,28 @@ INSERT INTO `manufactures` (`manu_id`, `manu_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `oder`
+--
+
+DROP TABLE IF EXISTS `oder`;
+CREATE TABLE IF NOT EXISTS `oder` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lastname` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `city` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `country` varchar(70) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ordernote` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `product` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `total` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `products`
 --
 
@@ -99,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `models` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `sale` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `products`
