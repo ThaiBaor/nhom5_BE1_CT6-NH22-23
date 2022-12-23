@@ -20,6 +20,14 @@ class Manufactures extends Db
         $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $item;
     }
+
+    public function countAllManufacture()
+    {
+        $sql = self::$connection->prepare("SELECT COUNT(*) as 'qty'FROM manufactures");
+        $sql->execute(); //return an object
+        $qty = $sql->get_result()->fetch_assoc();
+        return $qty['qty']; //return an array
+    }
     // Hàm thêm manufacture 
     public function addManufacture($manuName)
     {

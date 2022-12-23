@@ -18,6 +18,13 @@ class Account extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }
+    public function countAllUser()
+    {
+        $sql = self::$connection->prepare("SELECT COUNT(*) as 'qty'FROM account");
+        $sql->execute(); //return an object
+        $qty = $sql->get_result()->fetch_assoc();
+        return $qty['qty']; //return an array
+    }
 
     public function deleteAccount($id)
     {

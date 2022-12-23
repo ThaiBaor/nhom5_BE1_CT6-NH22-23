@@ -6,11 +6,11 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="newsletter">
-						<p>Sign Up for the <strong>NEWSLETTER</strong></p>
+						<!-- <p>Sign Up for the <strong>NEWSLETTER</strong></p>
 						<form>
 							<input class="input" type="email" placeholder="Enter Your Email">
 							<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
-						</form>
+						</form> -->
 						<ul class="newsletter-follow">
 							<li>
 								<a href="#"><i class="fa fa-facebook"></i></a>
@@ -57,14 +57,7 @@
 						<div class="footer">
 							<h3 class="footer-title">Categories</h3>
 							<ul class="footer-links">
-								<li><a href="#">Hot deals</a></li>
-								<?php
-						foreach ($allProtype as $value){
-							?>
-						<li><a href="store.php?typeid=<?php echo $value['type_id']?>"><?php echo $value['type_name'] ?></a></li>
-						<?php
-						}
-						?>
+								<li><a href="store.php?typeid=0&page=1">All Categories</a></li>
 							</ul>
 						</div>
 					</div>
@@ -88,10 +81,9 @@
 						<div class="footer">
 							<h3 class="footer-title">Service</h3>
 							<ul class="footer-links">
-								<li><a href="#">My Account</a></li>
-								<li><a href="#">View Cart</a></li>
-								<li><a href="#">Wishlist</a></li>
-								<li><a href="#">Track My Order</a></li>
+								<li><a href="order.php">My Account</a></li>
+								<li><a href="cart.php">View Cart</a></li>
+								<li><a href="wishlist.php">Wishlist</a></li>
 								<li><a href="#">Help</a></li>
 							</ul>
 						</div>

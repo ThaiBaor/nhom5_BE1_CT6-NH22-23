@@ -38,4 +38,12 @@ class Order extends Db
         $sql->bind_param("sssssssssii",$firstname, $lastname, $email, $address, $city, $country, $phone, $ordernote, $product, $total,$id);
         return $sql->execute(); //return an object       
     }
+
+    public function countAllOrder()
+    {
+        $sql = self::$connection->prepare("SELECT COUNT(*) as 'qty'FROM oder");
+        $sql->execute(); //return an object
+        $qty = $sql->get_result()->fetch_assoc();
+        return $qty['qty']; //return an array
+    }
 }
