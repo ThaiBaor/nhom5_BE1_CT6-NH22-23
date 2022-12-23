@@ -22,8 +22,6 @@ else{
     $offset = ceil($qtyOfSearchProductsAllType / $perPage);
 }
 $url = $_SERVER['PHP_SELF'];
-
-
 ?>
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">

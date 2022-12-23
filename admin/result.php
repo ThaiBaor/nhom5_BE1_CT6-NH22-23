@@ -1,6 +1,24 @@
 <?php
 require "header.php";
 require "sidebar.php";
+
+$perPage = 6;
+$page;
+$offset;
+$qtyOfSearchProducts=$products->countSearchAllProducts($_GET['keyword']);
+$getKey = $_GET['keyword'];
+
+
+if(isset($_GET['page'])){
+    $page = $_GET['page'];
+    $offset = ceil($qtyOfSearchProducts / $perPage);
+}
+else{
+    $page = 1;
+    $offset = ceil($qtyOfSearchProducts / $perPage);
+}
+$url = $_SERVER['PHP_SELF'];
+
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -26,10 +44,6 @@ require "sidebar.php";
     <section class="content">
 
       <!-- Default box -->
-      <form action="result.php" method="get">
-      <input class="input" name="keyword" placeholder="Search here">
-      <button type="submit" class="search-btn">Search</button>
-      </form>
       <div class="card">
         <div class="card-header">
           
@@ -87,7 +101,7 @@ require "sidebar.php";
               </thead>
               <tbody>
               <?php                
-                $allProducts = $products->getAllProducts();
+                $allProducts = $products->getProductsPageSreachAdmin($page,$perPage,$getKey);
                 foreach($allProducts as $value){
                 ?>
                   <tr>
@@ -141,7 +155,14 @@ require "sidebar.php";
 
     </section>
     <!-- /.content -->
+    <div class="store-filter clearfix">
+                    
+                    <ul class="store-pagination">
+                    <?php echo $products->paginateSreachAdmin($url,$qtyOfSearchProducts,$page,$perPage,$offset,$getKey)?>
+                    </ul>
+                </div>
   </div>
+  
   <!-- /.content-wrapper -->
 <!-- ./wrapper -->
 <?php 

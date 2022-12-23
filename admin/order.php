@@ -60,7 +60,7 @@ require "sidebar.php";
                             <th style="width: 10%">
                                 City
                             </th>
-                            <th style="width: 30%">
+                            <th style="width: 5%">
                                 Country
                             </th>
                             <th style="width: 5%" class="text-center">
@@ -72,8 +72,11 @@ require "sidebar.php";
                             <th style="width: 20%" class="text-right">
                                 Product
                             </th>
-                            <th style="width: 20%" class="text-right">
+                            <th style="width: 10%" class="text-right">
                                 Total
+                            </th>
+                            <th style="width: 20%" class="text-right">
+                                Action
                             </th>
                         </tr>
                     </thead>

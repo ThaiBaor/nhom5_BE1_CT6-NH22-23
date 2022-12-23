@@ -117,6 +117,7 @@ class Products extends Db
         return $items; //return an array
     }
 
+
     public function countByProtype($protype)
     {
         $sql = self::$connection->prepare("SELECT COUNT(*) as 'qty'FROM products WHERE `type_id` =?");
@@ -252,6 +253,19 @@ class Products extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }
+    function getProductsPageSreachAdmin($page, $perPage, $keyword)
+    {
+        // Tính số thứ tự trang bắt đầu
+        $firstLink = ($page - 1) * $perPage;
+        //Dùng LIMIT để giới hạn số lượng hiển thị 1 trang
+        $sql = self::$connection->prepare("SELECT * FROM products, manufactures, protypes WHERE products.type_id=protypes.type_id AND products.manu_id=manufactures.manu_id AND `name` LIKE? LIMIT $firstLink, $perPage");
+        $keyword = "%$keyword%";
+        $sql->bind_param("s", $keyword);
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
     // lấy sản phẩm phân trang tìm kiếm có tham số keyword và categori
     function getProductsPageSreach($page, $perPage, $keyword, $categori)
     {
@@ -340,6 +354,30 @@ class Products extends Db
         $link = "";
         for ($j = $from; $j <= $to; $j++) {
             $link = $link . "<a href = '$url?page=$j&keyword=$keyword&categori=$categori'> $j </a>";
+        }
+        return $link;
+    }
+    function paginateSreachAdmin($url, $total, $page, $perPage, $offset, $keyword)
+    {
+        if ($total <= 0) {
+            return "";
+        }
+        $totalLinks = ceil($total / $perPage);
+        if ($totalLinks <= 1) {
+            return "";
+        }
+        $from = $page - $offset;
+        $to = $page + $offset;
+        if ($from <= 0) {
+            $from = 1;
+            $to = $offset * 2;
+        }
+        if ($to > $totalLinks) {
+            $to = $totalLinks;
+        }
+        $link = "";
+        for ($j = $from; $j <= $to; $j++) {
+            $link = $link . "<a href = '$url?page=$j&keyword=$keyword'> $j </a>";
         }
         return $link;
     }
