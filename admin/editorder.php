@@ -62,10 +62,6 @@ if (isset($_GET['id'])) {
                                     <input value="<?php echo $getOrder[0]['city'] ?>" type="text" name="city" class="form-control" id="city" placeholder="Enter city">
                                 </div>
                                 <div class="form-group">
-                                    <label for="country">Country</label>
-                                    <input value="<?php echo $getOrder[0]['country'] ?>" type="text" name="country" class="form-control" id="country" placeholder="Enter country">
-                                </div>
-                                <div class="form-group">
                                     <label for="Phone">Phone</label>
                                     <input value="<?php echo $getOrder[0]['phone'] ?>" type="text" name="phone" class="form-control" id="phone" placeholder="Enter Phone">
                                 </div>

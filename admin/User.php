@@ -66,6 +66,7 @@ require "sidebar.php";
               <?php                
                 $allAccount = $user->getAllAccount();
                 foreach($allAccount as $value){
+                  $countConflict=$user->countConflictProduct($value['username']);
                 ?>
                   <tr>
                       <td>
@@ -77,18 +78,21 @@ require "sidebar.php";
                       <td>
                       <?php echo $value['password']?>
                       </td>
+                      <?php
+                      if ($value['username']!='Admin'){?>
                       <td class="project-actions text-right">
                           <a class="btn btn-info btn-sm" href="edituser.php?id=<?php echo $value['id']?>">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="deleteuser.php?id=<?php echo $value['id']?>">
+                          <a class="btn btn-danger btn-sm" onclick="return isDeleted(<?php echo $countConflict ?>)" href="deleteuser.php?id=<?php echo $value['id']?>">
                               <i class="fas fa-trash">
                               </i>
                               Delete
                           </a>
                       </td>
+                      <?php }?>                   
                   </tr>
                   <?php } ?>                  
               </tbody>

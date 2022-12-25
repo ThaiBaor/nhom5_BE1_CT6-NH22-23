@@ -89,6 +89,7 @@ require "sidebar.php";
               <?php                
                 $allProducts = $products->getAllProducts();
                 foreach($allProducts as $value){
+                  $countConflict=$products->countConflictProduct($value['name']);
                 ?>
                   <tr>
                       <td>
@@ -124,7 +125,7 @@ require "sidebar.php";
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="deleteproduct.php?id=<?php echo $value['id']?>">
+                          <a class="btn btn-danger btn-sm" onclick="return isDeleted(<?php echo $countConflict ?>)" href="deleteproduct.php?id=<?php echo $value['id']?>">
                               <i class="fas fa-trash">
                               </i>
                               Delete

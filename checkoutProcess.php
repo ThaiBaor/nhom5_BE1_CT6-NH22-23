@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "config.php";
 require "models/db.php";
 require "models/order.php";
@@ -9,13 +10,13 @@ if (isset($_POST['first-name'])){
     $email = $_POST['email'];
     $address = $_POST['address'];
     $city= $_POST['city'];
-    $country = $_POST['country'];
+    $username = $_SESSION['account'];
     $phone= $_POST['tel'];
     $ordernotes = $_POST['ordernotes'];
     $product = $_POST['product'];
     $total = $_POST['total'];
 
-    $order->addorder($firstname, $lastname, $email, $address, $city, $country, $phone, $ordernotes, $product, $total);
+    $order->addorder($firstname, $lastname, $email, $address, $city, $username, $phone, $ordernotes, $product, $total);
     header("location:order.php");
 }
     

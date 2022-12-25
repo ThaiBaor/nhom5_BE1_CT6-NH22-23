@@ -23,7 +23,7 @@ class Account extends Db
         $sql = self::$connection->prepare("SELECT COUNT(*) as 'qty'FROM account");
         $sql->execute(); //return an object
         $qty = $sql->get_result()->fetch_assoc();
-        return $qty['qty']; //return an array
+        return $qty['qty']-1; //return an array
     }
 
     public function deleteAccount($id)
@@ -64,5 +64,13 @@ class Account extends Db
         $password = MD5($password);
         $sql->bind_param("ss", $username, $password);
         $sql->execute(); //return an object
+    }
+    public function countConflictProduct($username)
+    {
+        $sql = self::$connection->prepare("SELECT COUNT(*) AS 'qty' FROM oder,account WHERE oder.username=account.username AND account.username=?");
+        $sql->bind_param("i", $username);
+        $sql->execute(); //return an object
+        $qty = $sql->get_result()->fetch_assoc();
+        return $qty['qty']; //return an array
     }
 }

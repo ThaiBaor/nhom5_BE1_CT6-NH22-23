@@ -9,12 +9,13 @@ if (isset($_POST['username'])){
     $password=MD5($_POST['password']);
     $check=$account->getAccount($username,$password);
     if ($check==1){
-        $_SESSION['account']=true;
         if ($username =='Admin'){
+            $_SESSION['admin']=true;
             header("location:admin/admin.php"); 
         }
         else{
-            header("location:index.php");   
+            $_SESSION['account']=$username;
+            header("location:index.php");
         }
         }
     else{

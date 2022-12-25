@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th12 22, 2022 lúc 01:12 PM
--- Phiên bản máy phục vụ: 5.7.36
--- Phiên bản PHP: 7.4.26
+-- Host: 127.0.0.1:3306
+-- Generation Time: Dec 25, 2022 at 03:29 PM
+-- Server version: 5.7.31
+-- PHP Version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `nhom5`
+-- Database: `nhom5`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `account`
+-- Table structure for table `account`
 --
 
 DROP TABLE IF EXISTS `account`;
@@ -33,21 +33,21 @@ CREATE TABLE IF NOT EXISTS `account` (
   `username` varchar(50) NOT NULL,
   `password` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `account`
+-- Dumping data for table `account`
 --
 
 INSERT INTO `account` (`id`, `username`, `password`) VALUES
-(1, 'thaibao123', 'fcea920f7412b5da7be0cf42b8c93759'),
+(6, 'thaibao123', '202cb962ac59075b964b07152d234b70'),
 (3, 'Admin', 'c4ca4238a0b923820dcc509a6f75849b'),
 (5, 'hoaimonkey', 'c4ca4238a0b923820dcc509a6f75849b');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `manufactures`
+-- Table structure for table `manufactures`
 --
 
 DROP TABLE IF EXISTS `manufactures`;
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `manufactures` (
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `manufactures`
+-- Dumping data for table `manufactures`
 --
 
 INSERT INTO `manufactures` (`manu_id`, `manu_name`) VALUES
@@ -71,7 +71,7 @@ INSERT INTO `manufactures` (`manu_id`, `manu_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `oder`
+-- Table structure for table `oder`
 --
 
 DROP TABLE IF EXISTS `oder`;
@@ -82,18 +82,25 @@ CREATE TABLE IF NOT EXISTS `oder` (
   `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `address` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
   `city` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `country` varchar(70) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `username` varchar(70) CHARACTER SET utf8 DEFAULT NULL,
   `phone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ordernote` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
   `product` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `total` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `oder`
+--
+
+INSERT INTO `oder` (`id`, `firstname`, `lastname`, `email`, `address`, `city`, `username`, `phone`, `ordernote`, `product`, `total`) VALUES
+(7, 'dfg', 'wr', 'speedstop123@gmail.comer', 'wer', 'wer', 'thaibao123', 'werw', 'er', 'Corsair HS70 PRO\r\n', 2000000);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `products`
+-- Table structure for table `products`
 --
 
 DROP TABLE IF EXISTS `products`;
@@ -124,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 ) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `products`
+-- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `manu_id`, `type_id`, `price`, `image`, `description`, `feature`, `created_at`, `sold`, `instock`, `display`, `chip`, `ram`, `rom`, `connection`, `micro`, `battery`, `weight`, `keyswitch`, `models`, `sale`) VALUES
@@ -164,7 +171,7 @@ INSERT INTO `products` (`id`, `name`, `manu_id`, `type_id`, `price`, `image`, `d
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `protypes`
+-- Table structure for table `protypes`
 --
 
 DROP TABLE IF EXISTS `protypes`;
@@ -175,11 +182,11 @@ CREATE TABLE IF NOT EXISTS `protypes` (
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `protypes`
+-- Dumping data for table `protypes`
 --
 
 INSERT INTO `protypes` (`type_id`, `type_name`) VALUES
-(1, 'Mobile phone'),
+(1, 'Mobile Phone'),
 (2, 'Laptop'),
 (3, 'Headphone'),
 (4, 'Monitor'),

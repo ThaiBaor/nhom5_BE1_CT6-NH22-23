@@ -381,4 +381,12 @@ class Products extends Db
         }
         return $link;
     }
+    public function countConflictProduct($name)
+    {
+        $sql = self::$connection->prepare("SELECT COUNT(*) as 'qty' FROM oder,products WHERE CONTAINS(oder.product,products.name) AND products.name=?");
+        $sql->bind_param("s", $name);
+        $sql->execute(); //return an object
+        $qty = $sql->get_result()->fetch_assoc();
+        return $qty['qty']; //return an array
+    }
 }

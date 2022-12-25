@@ -61,7 +61,7 @@ require "sidebar.php";
                                 City
                             </th>
                             <th style="width: 5%">
-                                Country
+                                Username
                             </th>
                             <th style="width: 5%" class="text-center">
                                 Phone
@@ -84,6 +84,7 @@ require "sidebar.php";
                         <?php
                         $allOrder = $order->getAllOrder();
                         foreach ($allOrder as $value) {
+                            
                         ?>
                             <tr>
                                 <td>
@@ -105,7 +106,7 @@ require "sidebar.php";
                                 <?php echo $value['city'] ?>
                                 </td>
                                 <td>
-                                <?php echo $value['country'] ?>
+                                <?php echo $value['username'] ?>
                                 </td>
                                 <td class="text-center">
                                 <?php echo $value['phone'] ?>
@@ -125,7 +126,7 @@ require "sidebar.php";
                                         </i>
                                         Edit
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="deleteorder.php?id=<?php echo $value['id'] ?>">
+                                    <a class="btn btn-danger btn-sm" onclick="return isDeleted(0)" href="deleteorder.php?id=<?php echo $value['id'] ?>">
                                         <i class="fas fa-trash">
                                         </i>
                                         Delete

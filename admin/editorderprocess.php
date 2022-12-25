@@ -10,13 +10,13 @@ if (isset($_POST['id'])){
     $email = $_POST['email'];
     $address = $_POST['address'];
     $city= $_POST['city'];
-    $country = $_POST['country'];
+    $username = $_SESSION['account'];
     $phone= $_POST['phone'];
     $ordernotes = $_POST['ordernote'];
     $product = $_POST['product'];
     $total = $_POST['total'];
 
-    $order->editOrder($id,$firstname, $lastname, $email, $address, $city, $country, $phone, $ordernotes, $product, $total);
+    $order->editOrder($id,$firstname, $lastname, $email, $address, $city, $username, $phone, $ordernotes, $product, $total);
     header("location:order.php");
 }
     

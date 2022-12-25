@@ -63,6 +63,7 @@ require "sidebar.php";
               <?php                
                 $allProtypes = $protypes->getAllProtype();
                 foreach($allProtypes as $value){
+                  $countConflict=$protypes->countConflictProduct($value['type_id']);
                 ?>
                   <tr>
                       <td>
@@ -77,7 +78,7 @@ require "sidebar.php";
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="deleteprotype.php?id=<?php echo $value['type_id']?>">
+                          <a class="btn btn-danger btn-sm" onclick="return isDeleted(<?php echo $countConflict ?>)" href="deleteprotype.php?id=<?php echo $value['type_id']?>">
                               <i class="fas fa-trash">
                               </i>
                               Delete

@@ -63,6 +63,7 @@ require "sidebar.php";
               <?php                
                 $allManufacture = $manufactures->getAllMaunufactures();
                 foreach($allManufacture as $value){
+                  $countConflict=$manufactures->countConflictProduct($value['manu_id']);
                 ?>
                   <tr>
                       <td>
@@ -77,7 +78,7 @@ require "sidebar.php";
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="deletemanufacture.php?id=<?php echo $value['manu_id']?>">
+                          <a class="btn btn-danger btn-sm" onclick="return isDeleted(<?php echo $countConflict ?>)" href="deletemanufacture.php?id=<?php echo $value['manu_id']?>">
                               <i class="fas fa-trash">
                               </i>
                               Delete

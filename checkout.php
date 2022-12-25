@@ -52,9 +52,6 @@ include "header.php";
                             <input class="input" type="text" name="city" placeholder="City">
                         </div>
                         <div class="form-group">
-                            <input class="input" type="text" name="country" placeholder="Country">
-                        </div>
-                        <div class="form-group">
                             <input class="input" type="tel" name="tel" placeholder="Telephone">
                         </div>
                         <div class="order-notes">

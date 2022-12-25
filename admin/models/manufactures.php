@@ -48,4 +48,12 @@ class Manufactures extends Db
         $sql->bind_param("i", $manuId);
         $sql->execute();
     }
+    public function countConflictProduct($manuId)
+    {
+        $sql = self::$connection->prepare("SELECT COUNT(*) as 'qty' FROM manufactures,products WHERE manufactures.manu_id=products.manu_id AND manufactures.manu_id=?");
+        $sql->bind_param("i", $manuId);
+        $sql->execute(); //return an object
+        $qty = $sql->get_result()->fetch_assoc();
+        return $qty['qty']; //return an array
+    }
 }

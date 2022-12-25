@@ -34,4 +34,12 @@ class Protype extends Db
         $sql->bind_param("si", $typeName,$typeId);
         return $sql->execute();
     }
+    public function countConflictProduct($typeId)
+    {
+        $sql = self::$connection->prepare("SELECT COUNT(*) as 'qty' FROM protypes,products WHERE protypes.type_id=products.type_id AND protypes.type_id=?");
+        $sql->bind_param("i", $typeId);
+        $sql->execute(); //return an object
+        $qty = $sql->get_result()->fetch_assoc();
+        return $qty['qty']; //return an array
+    }
 }

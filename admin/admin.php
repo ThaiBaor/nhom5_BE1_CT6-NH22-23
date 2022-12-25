@@ -1,4 +1,6 @@
 <?php
+session_start();
+if (isset($_SESSION['admin'])){
 require "header.php";
 require "sidebar.php";
 ?>
@@ -264,6 +266,10 @@ $(document).ready(function(){
 
 </script>
 <?php
-require "footer.php"
+require "footer.php";
+}
+else{
+	header("location:../login.php");
+}
 ?>
 
