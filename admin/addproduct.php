@@ -39,11 +39,11 @@ require "sidebar.php";
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name">
+                  <input type="text" name="name" class="form-control" id="name" required placeholder="Enter Name">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Price</label>
-                  <input type="number" name="price" class="form-control" id="price" placeholder="Enter Price">
+                  <input type="number" name="price" class="form-control" id="price" required placeholder="Enter Price">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Image</label>
@@ -52,19 +52,19 @@ require "sidebar.php";
                     echo "<p>".$_COOKIE['error']."</p>";
                   }
                   ?>
-                  <input type="file" name="image" class="form-control" id="image">
+                  <input type="file" name="image" class="form-control" required id="image">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Description</label>
-                  <input type="text" name="description" class="form-control" id="description" placeholder="Enter Description">
+                  <input type="text" name="description" class="form-control" id="description" required placeholder="Enter Description">
                 </div>
                 <div class="form-group">
                   <label for="sold">Sold</label>
-                  <input type="number" name="sold" class="form-control" id="description" placeholder="Enter Sold">
+                  <input type="number" name="sold" class="form-control" id="description" required placeholder="Enter Sold">
                 </div>
                 <div class="form-group">
                   <label for="sold">In Stock</label>
-                  <input type="number" name="instock" class="form-control" id="description" placeholder="Enter In Stock">
+                  <input type="number" name="instock" class="form-control" id="description" required placeholder="Enter In Stock">
                 </div>
 
                 <div class="form-group">

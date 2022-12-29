@@ -39,11 +39,11 @@ require "sidebar.php";
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">User name</label>
-                  <input type="text" name="username" class="form-control" id="username" placeholder="Enter Name" require="" ">
+                  <input type="text" name="username" class="form-control" id="username" required placeholder="Enter Name" >
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Password</label>
-                  <input type="password" name="password" class="form-control" id="password" placeholder="Enter Name" require="" ">
+                  <input type="password" name="password" class="form-control" id="password" required placeholder="Enter Name" >
                 </div>
               </div>
               <!-- /.card-body -->

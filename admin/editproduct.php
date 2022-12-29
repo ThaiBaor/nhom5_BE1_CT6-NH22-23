@@ -42,11 +42,11 @@ if (isset($_GET['id'])) {
                                 <div class="form-group">
                                     <input type="hidden" name="id" value="<?php echo $getProduct[0]['id']?>">
                                     <label for="exampleInputEmail1">Name</label>
-                                    <input value="<?php echo $getProduct[0]['name'] ?>" type="text" name="name" class="form-control" id="name" placeholder="Enter Name">
+                                    <input value="<?php echo $getProduct[0]['name'] ?>" type="text" name="name" class="form-control" id="name" required placeholder="Enter Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Price</label>
-                                    <input value="<?php echo $getProduct[0]['price'] ?>" type="number" name="price" class="form-control" id="price" placeholder="Enter Price">
+                                    <input value="<?php echo $getProduct[0]['price'] ?>" type="number" name="price" class="form-control" id="price" required placeholder="Enter Price">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Image</label>
@@ -55,15 +55,15 @@ if (isset($_GET['id'])) {
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Description</label>
-                                    <input value="<?php echo $getProduct[0]['description'] ?>" type="text" name="description" class="form-control" id="description" placeholder="Enter Description">
+                                    <input value="<?php echo $getProduct[0]['description'] ?>" type="text" name="description" class="form-control" id="description" required placeholder="Enter Description">
                                 </div>
                                 <div class="form-group">
                                     <label for="sold">Sold</label>
-                                    <input value="<?php echo $getProduct[0]['sold'] ?>" type="number" name="sold" class="form-control" id="sold" placeholder="Enter Sold">
+                                    <input value="<?php echo $getProduct[0]['sold'] ?>" type="number" name="sold" class="form-control" id="sold" required placeholder="Enter Sold">
                                 </div>
                                 <div class="form-group">
                                     <label for="sold">In Stock</label>
-                                    <input value="<?php echo $getProduct[0]['instock'] ?>" type="number" name="instock" class="form-control" id="description" placeholder="Enter In Stock">
+                                    <input value="<?php echo $getProduct[0]['instock'] ?>" type="number" name="instock" class="form-control" id="description" required placeholder="Enter In Stock">
                                 </div>
 
                                 <div class="form-group">

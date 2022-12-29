@@ -37,22 +37,22 @@ include "header.php";
                         </div>
 
                         <div class="form-group">
-                            <input class="input" type="text" name="first-name" placeholder="First Name">
+                            <input class="input" type="text" name="first-name" required placeholder="First Name">
                         </div>
                         <div class="form-group">
-                            <input class="input" type="text" name="last-name" placeholder="Last Name">
+                            <input class="input" type="text" name="last-name" required placeholder="Last Name">
                         </div>
                         <div class="form-group">
-                            <input class="input" type="email" name="email" placeholder="Email">
+                            <input class="input" type="email" name="email" required placeholder="Email">
                         </div>
                         <div class="form-group">
-                            <input class="input" type="text" name="address" placeholder="Address">
+                            <input class="input" type="text" name="address" required placeholder="Address">
                         </div>
                         <div class="form-group">
-                            <input class="input" type="text" name="city" placeholder="City">
+                            <input class="input" type="text" name="city" required placeholder="City">
                         </div>
                         <div class="form-group">
-                            <input class="input" type="tel" name="tel" placeholder="Telephone">
+                            <input class="input" type="tel" name="tel" required placeholder="Telephone">
                         </div>
                         <div class="order-notes">
                             <textarea class="input" name="ordernotes" placeholder="Order Notes"></textarea>

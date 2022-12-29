@@ -42,28 +42,28 @@ if (isset($_GET['id'])) {
                                 <div class="form-group">
                                     <input type="hidden" name="id" value="<?php echo $getOrder[0]['id']?>">
                                     <label for="exampleInputEmail1">First Name</label>
-                                    <input value="<?php echo $getOrder[0]['firstname'] ?>" type="text" name="firstname" class="form-control" id="name" placeholder="Enter first name">
+                                    <input value="<?php echo $getOrder[0]['firstname'] ?>" type="text" name="firstname" class="form-control" id="name" required placeholder="Enter first name">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Last Name</label>
-                                    <input value="<?php echo $getOrder[0]['lastname'] ?>" type="text" name="lastname" class="form-control" id="lastname" placeholder="Enter last name">
+                                    <input value="<?php echo $getOrder[0]['lastname'] ?>" type="text" name="lastname" class="form-control" id="lastname" required placeholder="Enter last name">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Email</label>
                                     
-                                    <input value="<?php echo $getOrder[0]['email'] ?>" type="number" name="email" class="form-control" id="email" placeholder="Enter email">
+                                    <input value="<?php echo $getOrder[0]['email'] ?>" type="number" name="email" class="form-control" id="email" required placeholder="Enter email">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Address</label>
-                                    <input value="<?php echo $getOrder[0]['address'] ?>" type="text" name="address" class="form-control" id="address" placeholder="Enter address">
+                                    <input value="<?php echo $getOrder[0]['address'] ?>" type="text" name="address" class="form-control" id="address" required placeholder="Enter address">
                                 </div>
                                 <div class="form-group">
                                     <label for="city">City</label>
-                                    <input value="<?php echo $getOrder[0]['city'] ?>" type="text" name="city" class="form-control" id="city" placeholder="Enter city">
+                                    <input value="<?php echo $getOrder[0]['city'] ?>" type="text" name="city" class="form-control" id="city" required placeholder="Enter city">
                                 </div>
                                 <div class="form-group">
                                     <label for="Phone">Phone</label>
-                                    <input value="<?php echo $getOrder[0]['phone'] ?>" type="text" name="phone" class="form-control" id="phone" placeholder="Enter Phone">
+                                    <input value="<?php echo $getOrder[0]['phone'] ?>" type="text" name="phone" class="form-control" id="phone" required placeholder="Enter Phone">
                                 </div>
                                 <div class="form-group">
                                     <label for="ordernote">Order note</label>
@@ -75,7 +75,7 @@ if (isset($_GET['id'])) {
                                 </div>
                                 <div class="form-group">
                                     <label for="total">Total</label>
-                                    <input value="<?php echo $getOrder[0]['total'] ?>" type="text" name="total" class="form-control" id="total" placeholder="Enter Phone">
+                                    <input value="<?php echo $getOrder[0]['total'] ?>" type="text" name="total" class="form-control" id="total" required placeholder="Enter Phone">
                                 </div>
 
                                 

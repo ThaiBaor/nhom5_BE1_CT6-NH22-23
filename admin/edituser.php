@@ -41,11 +41,11 @@ if(isset($_GET['id'])){
                 <div class="form-group">
                   <label for="exampleInputEmail1">User name</label>
                   <input type="hidden" name="id" value="<?php echo $getUser[0]['id'] ?>">
-                  <input value="<?php echo $getUser[0]['username']?>" type="text" name="username" class="form-control" id="username" placeholder="Enter Name" require="" ">
+                  <input value="<?php echo $getUser[0]['username']?>" type="text" name="username" class="form-control" id="username" required placeholder="Enter Name" require="" ">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Password</label>
-                  <input value="<?php echo $getUser[0]['password']?>" type="password" name="password" class="form-control" id="password" placeholder="Enter Name" require="" ">
+                  <input value="<?php echo $getUser[0]['password']?>" type="password" name="password" class="form-control" id="password" required placeholder="Enter Name" require="" ">
                 </div>
               </div>
               <!-- /.card-body -->
