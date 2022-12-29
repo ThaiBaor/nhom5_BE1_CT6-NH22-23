@@ -39,7 +39,7 @@ require "sidebar.php";
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" require="" pattern="[a-zA-Z]{1,100}">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required pattern="[a-zA-Z]{1,100}">
                 </div>
               </div>
               <!-- /.card-body -->
